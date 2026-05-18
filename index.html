@@ -25,25 +25,38 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .screen { display: none; }
 .screen.active { display: block; }
 
+/* ── HERO HEADER ── */
+.hero { background: var(--blue); padding: 1.5rem 1.1rem 1.25rem; text-align: center; }
+.hero-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.6rem; }
+.hero-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.hero-title { font-size: 18px; font-weight: 600; color: #fff; letter-spacing: -0.01em; line-height: 1.2; }
+.hero-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+/* ── TOPBAR (inner screens) ── */
 .topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0.85rem 1.1rem; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 20; }
-.topbar-icon { width: 36px; height: 36px; background: var(--blue-light); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.topbar-icon svg { width: 18px; height: 18px; stroke: var(--blue); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.topbar-icon { width: 34px; height: 34px; background: var(--blue-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.topbar-icon svg { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .topbar-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
 .topbar-sub { font-size: 11px; color: var(--text-sec); margin-top: 1px; }
 .back-btn { background: none; border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-sec); flex-shrink: 0; }
 .back-btn:hover { background: var(--gray-100); }
 .back-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
+/* ── WELCOME ── */
 .welcome { background: var(--blue-light); border-bottom: 1px solid rgba(24,95,165,0.12); padding: 1rem 1.1rem; }
-.welcome-title { font-size: 15px; font-weight: 600; color: var(--blue); margin-bottom: 5px; }
+.welcome-title { font-size: 13.5px; font-weight: 600; color: var(--blue); margin-bottom: 6px; }
 .welcome-steps { list-style: none; }
-.welcome-steps li { font-size: 12.5px; color: #1a5a9a; line-height: 1.5; padding: 2px 0; display: flex; align-items: flex-start; gap: 7px; }
-.welcome-steps li .num { background: var(--blue); color: #fff; font-size: 10px; font-weight: 600; width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.welcome-steps li { font-size: 12.5px; color: #1a5a9a; line-height: 1.55; padding: 2px 0; display: flex; align-items: flex-start; gap: 7px; }
+.welcome-steps li .num { background: var(--blue); color: #fff; font-size: 10px; font-weight: 600; width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.photo-tip { margin-top: 8px; background: rgba(24,95,165,0.08); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; padding: 7px 10px; font-size: 12px; color: #1a5a9a; line-height: 1.5; }
+.photo-tip strong { font-weight: 600; }
 
+/* ── OCCUPIED BADGE ── */
 .occ-row { padding: 0.6rem 1.1rem 0; display: flex; align-items: center; }
 .occ-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--green-light); color: var(--green-dark); font-size: 11.5px; font-weight: 500; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(29,158,117,0.2); }
-.occ-badge svg { width: 13px; height: 13px; stroke: var(--green); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.occ-badge svg { width: 13px; height: 13px; stroke: var(--green); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
+/* ── TOOLBAR ── */
 .toolbar { padding: 0.65rem 1.1rem; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid var(--border); }
 .search-wrap { flex: 1; position: relative; }
 .search-wrap > svg { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; stroke: var(--text-ter); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
@@ -58,6 +71,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .toggle input:checked + .toggle-slider { background: var(--blue); }
 .toggle input:checked + .toggle-slider::before { transform: translateX(16px); }
 
+/* ── PROGRESS ── */
 .progress-wrap { padding: 0.7rem 1.1rem 0.5rem; }
 .progress-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
 .progress-count { font-size: 12px; color: var(--text-sec); }
@@ -65,10 +79,12 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .progress-track { height: 5px; background: var(--gray-100); border-radius: 99px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width 0.4s ease; }
 
+/* ── JUMP DROPDOWN ── */
 .jump-wrap { padding: 0 1.1rem 0.65rem; }
 .jump-select { width: 100%; padding: 8px 10px; border: 1px solid var(--border-mid); border-radius: var(--r-md); font-size: 13px; font-family: var(--font); color: var(--text); background: var(--gray-50); outline: none; cursor: pointer; }
 .jump-select:focus { border-color: var(--blue-mid); }
 
+/* ── SITE LIST ── */
 .site-list { padding: 0 1.1rem 0.5rem; }
 .site-card { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 0.75rem 0.9rem; margin-bottom: 7px; cursor: pointer; transition: border-color 0.15s, background 0.15s; -webkit-tap-highlight-color: transparent; }
 .site-card:hover { border-color: var(--border-mid); }
@@ -90,17 +106,25 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .badge-done { background: var(--green); color: #fff; }
 .chevron svg { width: 14px; height: 14px; stroke: var(--text-ter); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
+/* ── STICKY SUBMIT ── */
 .sticky-submit { position: sticky; bottom: 0; background: #fff; border-top: 1px solid var(--border); padding: 0.75rem 1.1rem; z-index: 15; }
 .save-indicator { font-size: 11px; color: var(--green-dark); text-align: center; padding: 4px 0 0; display: none; }
 .save-indicator.show { display: block; }
 
-.btn-primary { width: 100%; padding: 13px; background: var(--blue); color: #fff; border: none; border-radius: var(--r-lg); font-size: 14.5px; font-weight: 600; font-family: var(--font); cursor: pointer; transition: background 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; }
+/* ── BUTTONS — all caps ── */
+.btn-primary { width: 100%; padding: 13px; background: var(--blue); color: #fff; border: none; border-radius: var(--r-lg); font-size: 13.5px; font-weight: 600; font-family: var(--font); cursor: pointer; text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; }
 .btn-primary:active { transform: scale(0.98); }
 .btn-primary:disabled { background: var(--gray-200); color: var(--text-ter); cursor: default; transform: none; }
-.btn-secondary { width: 100%; padding: 12px; background: transparent; color: var(--text-sec); border: 1px solid var(--border-mid); border-radius: var(--r-lg); font-size: 14px; font-weight: 500; font-family: var(--font); cursor: pointer; margin-top: 9px; }
+.btn-secondary { width: 100%; padding: 12px; background: transparent; color: var(--text-sec); border: 1px solid var(--border-mid); border-radius: var(--r-lg); font-size: 13px; font-weight: 600; font-family: var(--font); cursor: pointer; margin-top: 9px; text-transform: uppercase; letter-spacing: 0.04em; }
 .btn-secondary:hover { background: var(--gray-50); }
-.btn-draft { width: 100%; padding: 11px; background: var(--amber-light); color: var(--amber-dark); border: 1px solid rgba(186,117,23,0.25); border-radius: var(--r-lg); font-size: 13.5px; font-weight: 500; font-family: var(--font); cursor: pointer; margin-top: 9px; }
+.btn-draft { width: 100%; padding: 11px; background: var(--amber-light); color: var(--amber-dark); border: 1px solid rgba(186,117,23,0.25); border-radius: var(--r-lg); font-size: 13px; font-weight: 600; font-family: var(--font); cursor: pointer; margin-top: 9px; text-transform: uppercase; letter-spacing: 0.04em; }
+.next-nav { display: flex; gap: 8px; margin-top: 1.1rem; }
+.next-nav button { flex: 1; padding: 12px 6px; border-radius: var(--r-lg); font-size: 11.5px; font-weight: 600; font-family: var(--font); cursor: pointer; border: 1px solid var(--border-mid); background: #fff; color: var(--text-sec); text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; transition: background 0.15s; }
+.next-nav button:hover { background: var(--gray-50); }
+.next-nav button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+.next-nav button.primary:hover { background: var(--blue-mid); }
 
+/* ── ENTRY FORM ── */
 .entry-body { padding: 1.1rem; }
 .field-group { margin-bottom: 1.1rem; }
 .field-label { font-size: 12.5px; font-weight: 500; color: var(--text-sec); margin-bottom: 5px; }
@@ -113,23 +137,19 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .photo-zone:hover { border-color: var(--blue-mid); background: var(--blue-light); }
 .photo-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; font-size: 0; }
 .photo-zone svg { width: 26px; height: 26px; stroke: var(--text-ter); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 5px; }
-.photo-zone p { font-size: 12.5px; color: var(--text-sec); }
-.photo-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: var(--r-md); margin-top: 9px; display: none; border: 1px solid var(--border); }
+.photo-zone-label { font-size: 12.5px; color: var(--text-sec); }
+.photo-zone-hint { font-size: 11.5px; color: var(--text-ter); margin-top: 3px; }
+.photo-preview { width: 100%; max-height: 200px; object-fit: cover; border-radius: var(--r-md); margin-top: 9px; display: none; border: 1px solid var(--border); }
 .photo-taken { border-color: var(--green); background: var(--green-light); }
 .photo-taken svg { stroke: var(--green); }
-.photo-taken p { color: var(--green-dark); font-weight: 500; }
-
-.next-nav { display: flex; gap: 8px; margin-top: 1.1rem; }
-.next-nav button { flex: 1; padding: 12px 6px; border-radius: var(--r-lg); font-size: 12.5px; font-weight: 500; font-family: var(--font); cursor: pointer; border: 1px solid var(--border-mid); background: #fff; color: var(--text-sec); transition: background 0.15s; line-height: 1.3; }
-.next-nav button:hover { background: var(--gray-50); }
-.next-nav button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
-.next-nav button.primary:hover { background: var(--blue-mid); }
+.photo-taken .photo-zone-label { color: var(--green-dark); font-weight: 500; }
+.photo-taken .photo-zone-hint { color: var(--green-dark); opacity: 0.7; }
 
 .status-msg { font-size: 12.5px; text-align: center; margin-top: 8px; min-height: 16px; }
 .status-msg.error { color: var(--red); }
 .status-msg.success { color: var(--green-dark); }
 
-/* REVIEW */
+/* ── REVIEW ── */
 .review-body { padding: 1.1rem; }
 .review-card { background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 0.85rem 1rem; margin-bottom: 7px; }
 .review-site { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
@@ -138,7 +158,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .review-val { font-weight: 500; color: var(--text); }
 .review-ok { color: var(--green-dark); font-weight: 500; }
 
-/* SUBMIT PROGRESS */
+/* ── SUBMIT PROGRESS ── */
 .submit-progress { background: var(--blue-light); border: 1px solid rgba(24,95,165,0.15); border-radius: var(--r-lg); padding: 1rem; margin-bottom: 1rem; display: none; }
 .submit-progress.show { display: block; }
 .submit-progress-title { font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 8px; }
@@ -146,13 +166,13 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .submit-progress-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.3s; }
 .submit-progress-label { font-size: 12px; color: var(--blue); }
 
-/* SUCCESS BANNER */
+/* ── SUCCESS BANNER ── */
 .success-banner { background: var(--green-light); border: 1px solid rgba(29,158,117,0.25); border-radius: var(--r-lg); padding: 1rem 1.1rem; margin-bottom: 1rem; display: none; }
 .success-banner.show { display: block; }
 .success-banner-title { font-size: 14px; font-weight: 600; color: var(--green-dark); margin-bottom: 3px; }
-.success-banner-sub { font-size: 12.5px; color: var(--green-dark); opacity: 0.85; }
+.success-banner-sub { font-size: 12.5px; color: var(--green-dark); opacity: 0.85; line-height: 1.5; }
 
-/* LOADING / DONE */
+/* ── LOADING / DONE ── */
 .loading-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; gap: 14px; color: var(--text-sec); font-size: 13.5px; }
 .spinner { width: 30px; height: 30px; border: 2.5px solid var(--gray-200); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.75s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -162,6 +182,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .done-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
 .done-sub { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
 
+/* ── TOAST ── */
 .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--gray-900); color: #fff; font-size: 13px; padding: 9px 18px; border-radius: 20px; opacity: 0; transition: opacity 0.25s, transform 0.25s; pointer-events: none; z-index: 100; max-width: 88vw; text-align: center; line-height: 1.4; }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .empty-state { text-align: center; padding: 2.5rem 1.5rem; color: var(--text-sec); font-size: 13px; }
@@ -181,31 +202,36 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 
   <!-- SITE LIST -->
   <div id="screen-list" class="screen">
-    <div class="topbar">
-      <div class="topbar-icon">
+
+    <!-- CENTERED HERO HEADER -->
+    <div class="hero">
+      <div class="hero-icon">
         <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
-      <div style="flex:1">
-        <div class="topbar-title">Blue Ridge TX — Monthly Meter Reads</div>
-        <div class="topbar-sub" id="topbar-month"></div>
-      </div>
+      <div class="hero-title">Blue Ridge Texas<br>Monthly Meter Reads</div>
+      <div class="hero-sub" id="topbar-month"></div>
     </div>
 
+    <!-- INSTRUCTIONS -->
     <div class="welcome">
-      <div class="welcome-title">How to use this app</div>
+      <div class="welcome-title">How To Use This App</div>
       <ul class="welcome-steps">
         <li><span class="num">1</span> Tap any site below to open the meter read form</li>
-        <li><span class="num">2</span> Enter the kWh number shown on the meter and take a photo</li>
-        <li><span class="num">3</span> Tap <strong>Save &amp; next site</strong> — or choose which site to go to next</li>
-        <li><span class="num">4</span> When all sites turn green, tap <strong>Review &amp; submit</strong></li>
-        <li><span class="num">5</span> Progress saves automatically — safe to close and return anytime</li>
+        <li><span class="num">2</span> Enter the kWh number shown on the meter display</li>
+        <li><span class="num">3</span> Take a photo of the meter — <strong>make sure the site number and meter reading are both visible in the photo</strong></li>
+        <li><span class="num">4</span> Tap <strong>Save &amp; Next Site</strong> — or choose which site to go to next</li>
+        <li><span class="num">5</span> When all sites turn green, tap <strong>Review &amp; Submit</strong></li>
+        <li><span class="num">6</span> Progress saves automatically — safe to close and return anytime</li>
       </ul>
+      <div class="photo-tip">
+        <strong>Photo tip:</strong> Stand back slightly so both the <strong>site number sign</strong> and the <strong>meter face</strong> are clearly visible in a single shot. This is required for verification.
+      </div>
     </div>
 
     <div class="occ-row">
       <span class="occ-badge" id="occ-badge">
         <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        Showing occupied sites only
+        Showing Occupied Sites Only
       </span>
     </div>
 
@@ -215,7 +241,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <input class="search-input" type="search" id="search-input" placeholder="Filter sites..." oninput="filterSites()" />
       </div>
       <div class="toggle-wrap">
-        <span class="toggle-label">All sites</span>
+        <span class="toggle-label">All Sites</span>
         <label class="toggle" title="Toggle between occupied only and all 64 sites">
           <input type="checkbox" id="toggle-all" onchange="toggleAllSites()" />
           <span class="toggle-slider"></span>
@@ -233,15 +259,15 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 
     <div class="jump-wrap">
       <select class="jump-select" id="jump-select" onchange="jumpToSite()" aria-label="Jump to a specific site">
-        <option value="">— Jump to a specific site —</option>
+        <option value="">— Jump To A Specific Site —</option>
       </select>
     </div>
 
     <div class="site-list" id="site-list"></div>
 
     <div class="sticky-submit">
-      <button class="btn-primary" id="btn-submit-all" onclick="handleSubmitClick()">Review &amp; submit all reads</button>
-      <div class="save-indicator" id="save-indicator">Progress saved to this device</div>
+      <button class="btn-primary" id="btn-submit-all" onclick="handleSubmitClick()">Review &amp; Submit All Reads</button>
+      <div class="save-indicator" id="save-indicator">Progress Saved To This Device</div>
     </div>
   </div>
 
@@ -255,35 +281,39 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <div class="topbar-title" id="entry-site-name">Site 1</div>
         <div class="topbar-sub" id="entry-counter"></div>
       </div>
-      <span id="entry-badge" style="font-size:11px;padding:3px 8px;border-radius:6px;background:var(--gray-100);color:var(--text-ter);font-weight:600;flex-shrink:0;"></span>
+      <span id="entry-badge" style="font-size:11px;padding:3px 8px;border-radius:6px;background:var(--gray-100);color:var(--text-ter);font-weight:600;flex-shrink:0;text-transform:uppercase;letter-spacing:0.03em;"></span>
     </div>
     <div class="entry-body">
+
       <div class="field-group">
-        <div class="field-label">Meter reading (kWh) <span class="req">*</span></div>
+        <div class="field-label">Meter Reading (kWh) <span class="req">*</span></div>
         <input class="field-input" type="number" id="input-reading" placeholder="e.g. 4823" inputmode="numeric" />
       </div>
+
       <div class="field-group">
-        <div class="field-label">Meter photo <span class="req">*</span></div>
+        <div class="field-label">Meter Photo <span class="req">*</span></div>
         <div class="photo-zone" id="photo-zone">
           <input type="file" accept="image/*" capture="environment" id="input-photo" onchange="handlePhoto(this)" />
           <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <p id="photo-label">Tap to take photo or upload</p>
+          <div class="photo-zone-label" id="photo-zone-label">Tap To Take Photo Or Upload</div>
+          <div class="photo-zone-hint" id="photo-zone-hint">Include site number + meter face in the same shot</div>
           <img id="photo-preview" class="photo-preview" alt="Meter photo preview" />
         </div>
       </div>
+
       <div class="field-group">
-        <div class="field-label">Notes (optional)</div>
+        <div class="field-label">Notes (Optional)</div>
         <textarea class="field-input" id="input-notes" rows="2" placeholder="Any issues, damage, or unusual readings..."></textarea>
       </div>
 
       <div class="status-msg" id="entry-status"></div>
 
       <div class="next-nav">
-        <button class="primary" onclick="saveAndNext()">Save &amp; next site</button>
-        <button onclick="saveAndChoose()">Save &amp; select next site</button>
+        <button class="primary" onclick="saveAndNext()">Save &amp; Next Site</button>
+        <button onclick="saveAndChoose()">Save &amp; Select Next Site</button>
       </div>
-      <button class="btn-draft" onclick="saveDraft()">Save progress &amp; return later</button>
-      <button class="btn-secondary" onclick="goToList()">Back to site list</button>
+      <button class="btn-draft" onclick="saveDraft()">Save Progress &amp; Return Later</button>
+      <button class="btn-secondary" onclick="goToList()">Back To Site List</button>
     </div>
   </div>
 
@@ -294,7 +324,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
       </button>
       <div style="flex:1">
-        <div class="topbar-title">Select next site</div>
+        <div class="topbar-title">Select Next Site</div>
         <div class="topbar-sub">Tap the site you're heading to next</div>
       </div>
     </div>
@@ -314,29 +344,23 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
       </button>
       <div style="flex:1">
-        <div class="topbar-title">Review reads</div>
+        <div class="topbar-title">Review Reads</div>
         <div class="topbar-sub" id="review-subtitle"></div>
       </div>
     </div>
     <div class="review-body">
-
-      <!-- SUBMIT PROGRESS (shown during upload) -->
       <div class="submit-progress" id="submit-progress">
         <div class="submit-progress-title" id="submit-progress-title">Submitting reads...</div>
         <div class="submit-progress-track"><div class="submit-progress-fill" id="submit-progress-fill" style="width:0%"></div></div>
         <div class="submit-progress-label" id="submit-progress-label">Starting...</div>
       </div>
-
-      <!-- SUCCESS BANNER (shown after done) -->
       <div class="success-banner" id="success-banner">
-        <div class="success-banner-title">All meter reads submitted</div>
+        <div class="success-banner-title">All Meter Reads Submitted</div>
         <div class="success-banner-sub" id="success-banner-sub"></div>
       </div>
-
       <div id="review-list"></div>
-
-      <button class="btn-primary" id="btn-final-submit" onclick="submitToMonday()">Submit all meter reads</button>
-      <button class="btn-secondary" id="btn-back-edit" onclick="goToList()">Back to edit</button>
+      <button class="btn-primary" id="btn-final-submit" onclick="submitToMonday()">Submit All Meter Reads</button>
+      <button class="btn-secondary" id="btn-back-edit" onclick="goToList()">Back To Edit</button>
       <div class="status-msg" id="review-status"></div>
     </div>
   </div>
@@ -347,139 +371,143 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
       <div class="done-icon">
         <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       </div>
-      <div class="done-title">All meter reads submitted</div>
+      <div class="done-title">All Meter Reads Submitted</div>
       <div class="done-sub" id="done-msg"></div>
-      <button class="btn-secondary" style="max-width:220px;margin:2rem auto 0;" onclick="resetApp()">Start new month</button>
+      <button class="btn-secondary" style="max-width:220px;margin:2rem auto 0;" onclick="resetApp()">Start New Month</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── CONFIG ─────────────────────────────────────────────────────────────────
+// ── CONFIG — update token directly in GitHub editor, never paste in chat ──
 const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC45MDdaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.P1Nn9KU03qSVj9rzQBu_CrA0izkUYm4-m4UMKu41lPE';
-const SHEET_ID = '1oQrQ3uJUepiyekoCC60j3_LxIoDtDhlsZMaLaLGohGg';
+const SHEET_ID     = '1oQrQ3uJUepiyekoCC60j3_LxIoDtDhlsZMaLaLGohGg';
 const BOARD_ID_KEY = 'br_meter_board_id';
 const ENTRIES_KEY  = 'br_meter_entries';
 
-// ── CONSTANTS ──────────────────────────────────────────────────────────────
-const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const now = new Date();
+// ── DATE ──────────────────────────────────────────────────────────────────
+const MONTHS   = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const now      = new Date();
 const monthLabel = MONTHS[now.getMonth()] + ' ' + now.getFullYear();
-const todayStr = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const todayStr   = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
-// ── STATE ──────────────────────────────────────────────────────────────────
-let allSites = [];
-let occupiedSites = [];
-let sites = [];
-let entries = {};
-let currentIdx = 0;
-let showAll = false;
+// ── STATE ─────────────────────────────────────────────────────────────────
+let allSites = [], occupiedSites = [], sites = [];
+let entries = {}, currentIdx = 0, showAll = false;
 let boardId = localStorage.getItem(BOARD_ID_KEY) || null;
 try { entries = JSON.parse(localStorage.getItem(ENTRIES_KEY) || '{}'); } catch(e) { entries = {}; }
 
-// ── UTILITIES ──────────────────────────────────────────────────────────────
+// ── HELPERS ───────────────────────────────────────────────────────────────
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
   window.scrollTo(0, 0);
 }
-
-function showToast(msg, duration) {
+function showToast(msg, dur) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), duration || 2500);
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur || 2500);
 }
-
 function persistEntries() {
-  const toSave = {};
-  for (const k in entries) {
-    toSave[k] = { reading: entries[k].reading, notes: entries[k].notes, saved: entries[k].saved, site: entries[k].site };
-  }
-  try { localStorage.setItem(ENTRIES_KEY, JSON.stringify(toSave)); } catch(e) {}
+  const save = {};
+  for (const k in entries) save[k] = { reading: entries[k].reading, notes: entries[k].notes, saved: entries[k].saved, site: entries[k].site };
+  try { localStorage.setItem(ENTRIES_KEY, JSON.stringify(save)); } catch(e) {}
   const si = document.getElementById('save-indicator');
   if (si) { si.classList.add('show'); setTimeout(() => si.classList.remove('show'), 3000); }
 }
 
-// ── MONDAY API ─────────────────────────────────────────────────────────────
+// ── MONDAY GQL ────────────────────────────────────────────────────────────
 async function mondayGQL(query) {
-  const res = await fetch('https://api.monday.com/v2', {
+  const r = await fetch('https://api.monday.com/v2', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': MONDAY_TOKEN, 'API-Version': '2024-01' },
     body: JSON.stringify({ query })
   });
-  return res.json();
+  const data = await r.json();
+  if (data.errors) throw new Error(data.errors[0]?.message || 'Monday API error');
+  return data;
 }
 
-// Upload a file (base64 dataURL) to a Monday item's Files column via multipart
-async function uploadFileToMonday(itemId, fileColId, dataUrl, filename) {
+// ── PHOTO UPLOAD via multipart to /v2/file ────────────────────────────────
+// Monday requires multipart/form-data for file uploads.
+// We construct the multipart body manually to avoid CORS preflight issues.
+async function uploadPhotoToMonday(itemId, columnId, dataUrl, filename) {
   try {
-    const res = await fetch(dataUrl);
-    const blob = await res.blob();
+    // Convert base64 dataURL to Blob
+    const arr  = dataUrl.split(',');
+    const mime = arr[0].match(/:(.*?);/)[1];
+    const bstr = atob(arr[1]);
+    const u8   = new Uint8Array(bstr.length);
+    for (let i = 0; i < bstr.length; i++) u8[i] = bstr.charCodeAt(i);
+    const blob = new Blob([u8], { type: mime });
+
+    const gqlQuery = `mutation add_file($file: File!) {
+      add_file_to_column(item_id: ${itemId}, column_id: "${columnId}", file: $file) { id }
+    }`;
+
     const form = new FormData();
-    const query = `mutation ($file: File!) { add_file_to_column(item_id: ${itemId}, column_id: "${fileColId}", file: $file) { id } }`;
-    form.append('query', query);
+    form.append('query', gqlQuery);
     form.append('variables[file]', blob, filename);
-    await fetch('https://api.monday.com/v2/file', {
+
+    const r = await fetch('https://api.monday.com/v2/file', {
       method: 'POST',
       headers: { 'Authorization': MONDAY_TOKEN, 'API-Version': '2024-01' },
       body: form
     });
+    const data = await r.json();
+    if (data.errors) {
+      console.warn('Photo upload error:', data.errors[0]?.message);
+    }
   } catch(e) {
-    console.warn('Photo upload failed for item ' + itemId, e);
+    console.warn('Photo upload failed:', e.message);
   }
 }
 
-// ── BOARD SETUP ────────────────────────────────────────────────────────────
+// ── BOARD SETUP ───────────────────────────────────────────────────────────
 async function ensureBoard() {
   if (boardId) return boardId;
 
-  // Find Lighthouse workspace
   const wsRes = await mondayGQL(`{ workspaces { id name } }`);
-  const workspaces = wsRes?.data?.workspaces || [];
+  const wsList = wsRes?.data?.workspaces || [];
   let wsId = null;
-  for (const w of workspaces) { if (w.name.toLowerCase().includes('lighthouse')) { wsId = w.id; break; } }
-  if (!wsId && workspaces.length) wsId = workspaces[0].id;
+  for (const w of wsList) { if (w.name.toLowerCase().includes('lighthouse')) { wsId = w.id; break; } }
+  if (!wsId && wsList.length) wsId = wsList[0].id;
 
-  // Create board
   const cr = await mondayGQL(`mutation {
     create_board(board_name: "Blue Ridge TX - Monthly Meter Reads", board_kind: public${wsId ? ', workspace_id: ' + wsId : ''}) { id }
   }`);
   boardId = cr?.data?.create_board?.id;
-  if (!boardId) throw new Error('Could not create Monday board. Check your API token.');
+  if (!boardId) throw new Error('Could not create board. Check API token.');
   localStorage.setItem(BOARD_ID_KEY, boardId);
 
-  // Create columns: text, numbers, text, text, file, creation_log
-  const colDefs = [
-    ['Site Number',           'text'],
-    ['Meter Reading (kWh)',   'numbers'],
-    ['Read Month',            'text'],
-    ['Notes',                 'text'],
-    ['Meter Picture',         'file'],
-    ['Creation Log',          'creation_log']
+  // Create columns
+  const cols = [
+    ['Site Number',         'text'],
+    ['Meter Reading (kWh)', 'numbers'],
+    ['Read Month',          'text'],
+    ['Notes',               'text'],
+    ['Meter Picture',       'file'],
+    ['Creation Log',        'creation_log']
   ];
-  for (const [title, type] of colDefs) {
-    await mondayGQL(`mutation {
-      create_column(board_id: ${boardId}, title: "${title}", column_type: ${type}) { id }
-    }`);
+  for (const [title, type] of cols) {
+    await mondayGQL(`mutation { create_column(board_id: ${boardId}, title: "${title}", column_type: ${type}) { id } }`);
   }
   return boardId;
 }
 
-// ── LOAD SITES ─────────────────────────────────────────────────────────────
+// ── LOAD SITES ────────────────────────────────────────────────────────────
 async function loadSites() {
   show('loading');
   allSites = Array.from({ length: 64 }, (_, i) => 'Site ' + (i + 1));
   try {
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
-    const res = await fetch(url);
+    const url  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
+    const res  = await fetch(url);
     const text = await res.text();
-    const rows = text.trim().split('\n').slice(1);
     occupiedSites = [];
-    for (const row of rows) {
+    text.trim().split('\n').slice(1).forEach(row => {
       const cols = row.split(',').map(c => c.replace(/^"|"$/g, '').trim());
       if (cols.length >= 2 && cols[1].toLowerCase() === 'yes' && cols[0]) occupiedSites.push(cols[0]);
-    }
+    });
   } catch(e) { occupiedSites = []; }
   if (!occupiedSites.length) occupiedSites = allSites.slice();
 
@@ -489,66 +517,61 @@ async function loadSites() {
   rebuildJumpMenu();
   renderList();
   show('list');
-  const savedCount = Object.keys(entries).filter(k => entries[k] && entries[k].reading).length;
-  if (savedCount > 0) showToast('Resumed — ' + savedCount + ' site(s) already have data', 3500);
+  const saved = Object.keys(entries).filter(k => entries[k]?.reading).length;
+  if (saved > 0) showToast('Resumed — ' + saved + ' site(s) already have data', 3500);
 }
 
-// ── TOGGLE ALL SITES ───────────────────────────────────────────────────────
+// ── TOGGLE / FILTER ───────────────────────────────────────────────────────
 function toggleAllSites() {
   showAll = document.getElementById('toggle-all').checked;
-  sites = showAll ? allSites.slice() : occupiedSites.slice();
+  sites   = showAll ? allSites.slice() : occupiedSites.slice();
   const badge = document.getElementById('occ-badge');
   badge.innerHTML = showAll
-    ? '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Showing all 64 sites (vacant sites dimmed)'
-    : '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Showing occupied sites only';
+    ? '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Showing All 64 Sites (Vacant Sites Dimmed)'
+    : '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Showing Occupied Sites Only';
   document.getElementById('search-input').value = '';
-  rebuildJumpMenu();
-  renderList();
+  rebuildJumpMenu(); renderList();
 }
-
-// ── FILTER & RENDER LIST ───────────────────────────────────────────────────
 function filterSites() { renderList(); }
 
 function rebuildJumpMenu() {
   const sel = document.getElementById('jump-select');
-  sel.innerHTML = '<option value="">— Jump to a specific site —</option>';
+  sel.innerHTML = '<option value="">— Jump To A Specific Site —</option>';
   sites.forEach((site, idx) => {
     const e = entries[site];
-    const status = e && e.saved ? ' ✓' : e && e.reading ? ' …' : '';
+    const flag = e?.saved ? ' ✓' : e?.reading ? ' …' : '';
     const opt = document.createElement('option');
-    opt.value = idx;
-    opt.textContent = site + status;
+    opt.value = idx; opt.textContent = site + flag;
     sel.appendChild(opt);
   });
 }
-
 function jumpToSite() {
   const sel = document.getElementById('jump-select');
   const idx = parseInt(sel.value);
   if (!isNaN(idx) && idx >= 0) { openEntry(idx); sel.value = ''; }
 }
 
+// ── RENDER LIST ───────────────────────────────────────────────────────────
 function renderList() {
-  const list = document.getElementById('site-list');
+  const list  = document.getElementById('site-list');
   const query = (document.getElementById('search-input').value || '').toLowerCase();
+  const occSet = new Set(occupiedSites);
   const filtered = sites.filter(s => s.toLowerCase().includes(query));
-  const occupiedSet = new Set(occupiedSites);
 
-  const done = sites.filter(s => entries[s] && entries[s].saved).length;
+  const done  = sites.filter(s => entries[s]?.saved).length;
   const total = sites.length;
   document.getElementById('progress-label').textContent = done + ' of ' + total + ' complete';
-  document.getElementById('progress-fill').style.width = (total ? Math.round(done / total * 100) : 0) + '%';
+  document.getElementById('progress-fill').style.width  = (total ? Math.round(done / total * 100) : 0) + '%';
 
   list.innerHTML = '';
   if (!filtered.length) { list.innerHTML = '<div class="empty-state">No sites match your search.</div>'; return; }
 
   filtered.forEach(site => {
-    const idx = sites.indexOf(site);
-    const e = entries[site];
-    // Two states only: done (green) or not-yet-done (amber if touched, gray if untouched)
-    const isDone    = e && e.saved;
-    const isTouched = e && e.reading && !e.saved;
-    const isVacant  = showAll && !occupiedSet.has(site);
+    const idx      = sites.indexOf(site);
+    const e        = entries[site];
+    const isDone   = e?.saved;
+    const isTouched = e?.reading && !e.saved;
+    const isVacant = showAll && !occSet.has(site);
 
     const div = document.createElement('div');
     div.className = 'site-card' + (isDone ? ' done' : (isTouched ? ' amber' : ''));
@@ -563,112 +586,109 @@ function renderList() {
       '<span class="site-name">' + site +
         (isVacant ? ' <span style="font-size:10px;font-weight:400;color:var(--text-ter)">(vacant)</span>' : '') +
       '</span>' +
-      '<span class="site-badge ' + (isDone ? 'badge-done' : (isTouched ? 'badge-amber' : 'badge-ns')) + '">' +
-        (isDone ? 'Done' : (isTouched ? 'Pending' : 'Pending')) +
+      '<span class="site-badge ' + (isDone ? 'badge-done' : 'badge-amber') + '">' +
+        (isDone ? 'Done' : 'Pending') +
       '</span>' +
       '<span class="chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>';
-
     div.onclick = () => openEntry(idx);
     list.appendChild(div);
   });
 }
 
-// ── ENTRY FORM ─────────────────────────────────────────────────────────────
+// ── ENTRY FORM ────────────────────────────────────────────────────────────
 function openEntry(idx) {
   currentIdx = idx;
   const site = sites[idx];
-  document.getElementById('entry-site-name').textContent = site;
-  document.getElementById('entry-counter').textContent = 'Site ' + (idx + 1) + ' of ' + sites.length;
-  document.getElementById('entry-status').textContent = '';
-  document.getElementById('entry-status').className = 'status-msg';
+  const e    = entries[site] || {};
 
-  const e = entries[site] || {};
+  document.getElementById('entry-site-name').textContent = site;
+  document.getElementById('entry-counter').textContent   = 'Site ' + (idx + 1) + ' of ' + sites.length;
+  document.getElementById('entry-status').textContent    = '';
+  document.getElementById('entry-status').className      = 'status-msg';
   document.getElementById('input-reading').value = e.reading || '';
-  document.getElementById('input-notes').value = e.notes || '';
-  document.getElementById('input-photo').value = '';
+  document.getElementById('input-notes').value   = e.notes   || '';
+  document.getElementById('input-photo').value   = '';
 
   const badge = document.getElementById('entry-badge');
-  if (e.saved) {
-    badge.textContent = 'Done'; badge.style.background = 'var(--green-light)'; badge.style.color = 'var(--green-dark)';
-  } else if (e.reading) {
-    badge.textContent = 'Pending'; badge.style.background = 'var(--amber-light)'; badge.style.color = 'var(--amber-dark)';
-  } else {
-    badge.textContent = 'Not started'; badge.style.background = 'var(--gray-100)'; badge.style.color = 'var(--text-ter)';
-  }
+  if (e.saved)        { badge.textContent = 'Done';        badge.style.background = 'var(--green-light)';  badge.style.color = 'var(--green-dark)'; }
+  else if (e.reading) { badge.textContent = 'Pending';     badge.style.background = 'var(--amber-light)';  badge.style.color = 'var(--amber-dark)'; }
+  else                { badge.textContent = 'Not Started'; badge.style.background = 'var(--gray-100)';     badge.style.color = 'var(--text-ter)'; }
 
   const preview = document.getElementById('photo-preview');
-  const zone = document.getElementById('photo-zone');
-  const label = document.getElementById('photo-label');
+  const zone    = document.getElementById('photo-zone');
+  const lbl     = document.getElementById('photo-zone-label');
+  const hint    = document.getElementById('photo-zone-hint');
   if (e.photoUrl) {
     preview.src = e.photoUrl; preview.style.display = 'block';
-    zone.classList.add('photo-taken'); label.textContent = 'Photo attached — tap to replace';
+    zone.classList.add('photo-taken');
+    lbl.textContent  = 'Photo Attached — Tap To Replace';
+    hint.textContent = 'Include site number + meter face in the same shot';
   } else {
     preview.style.display = 'none'; preview.src = '';
-    zone.classList.remove('photo-taken'); label.textContent = 'Tap to take photo or upload';
+    zone.classList.remove('photo-taken');
+    lbl.textContent  = 'Tap To Take Photo Or Upload';
+    hint.textContent = 'Include site number + meter face in the same shot';
   }
   show('entry');
 }
 
 function handlePhoto(input) {
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = evt => {
     document.getElementById('photo-preview').src = evt.target.result;
     document.getElementById('photo-preview').style.display = 'block';
     document.getElementById('photo-zone').classList.add('photo-taken');
-    document.getElementById('photo-label').textContent = 'Photo attached — tap to replace';
+    document.getElementById('photo-zone-label').textContent = 'Photo Attached — Tap To Replace';
     const site = sites[currentIdx];
     if (!entries[site]) entries[site] = {};
     entries[site].photoUrl  = evt.target.result;
-    entries[site].photoName = file.name || ('meter-' + site.replace(/\s+/g,'-').toLowerCase() + '.jpg');
+    entries[site].photoName = file.name || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '.jpg');
   };
   reader.readAsDataURL(file);
 }
 
 function validateEntry() {
-  const reading = document.getElementById('input-reading').value.trim();
-  const site = sites[currentIdx];
+  const reading  = document.getElementById('input-reading').value.trim();
+  const site     = sites[currentIdx];
   const statusEl = document.getElementById('entry-status');
   if (!reading) { statusEl.textContent = 'Please enter the meter reading.'; statusEl.className = 'status-msg error'; return false; }
-  if (!entries[site] || !entries[site].photoUrl) { statusEl.textContent = 'Please attach a photo of the meter.'; statusEl.className = 'status-msg error'; return false; }
+  if (!entries[site]?.photoUrl) { statusEl.textContent = 'Please attach a photo of the meter (with site number visible).'; statusEl.className = 'status-msg error'; return false; }
   return true;
 }
 
 function commitEntry() {
   const site = sites[currentIdx];
-  const reading = document.getElementById('input-reading').value.trim();
-  const notes   = document.getElementById('input-notes').value.trim();
-  entries[site] = { ...entries[site], reading, notes, saved: true, site };
+  entries[site] = {
+    ...entries[site],
+    reading: document.getElementById('input-reading').value.trim(),
+    notes:   document.getElementById('input-notes').value.trim(),
+    saved: true, site
+  };
   persistEntries();
 }
 
 function saveAndNext() {
   if (!validateEntry()) return;
-  commitEntry();
-  showToast('Saved!');
-  const nextIdx = sites.findIndex((s, i) => i > currentIdx && !(entries[s] && entries[s].saved));
-  if (nextIdx !== -1) { setTimeout(() => openEntry(nextIdx), 350); }
-  else { setTimeout(() => { goToList(); showToast('All sites complete — tap Review & submit!', 3500); }, 350); }
+  commitEntry(); showToast('Saved!');
+  const nextIdx = sites.findIndex((s, i) => i > currentIdx && !entries[s]?.saved);
+  if (nextIdx !== -1) setTimeout(() => openEntry(nextIdx), 350);
+  else setTimeout(() => { goToList(); showToast('All sites complete — tap Review & Submit!', 3500); }, 350);
 }
 
 function saveAndChoose() {
   if (!validateEntry()) return;
   commitEntry();
-  document.getElementById('choose-search').value = '';
-  buildChooseList('');
-  show('choose');
+  document.getElementById('choose-search').value = ''; buildChooseList(''); show('choose');
 }
 
 function buildChooseList(query) {
   const list = document.getElementById('choose-list');
-  const q = query.toLowerCase();
-  list.innerHTML = '';
+  const q    = query.toLowerCase(); list.innerHTML = '';
   sites.forEach((site, idx) => {
     if (q && !site.toLowerCase().includes(q)) return;
     const e = entries[site];
-    const isDone    = e && e.saved;
-    const isTouched = e && e.reading && !e.saved;
+    const isDone = e?.saved; const isTouched = e?.reading && !e.saved;
     const div = document.createElement('div');
     div.className = 'site-card' + (isDone ? ' done' : (isTouched ? ' amber' : ''));
     div.innerHTML =
@@ -681,32 +701,26 @@ function buildChooseList(query) {
     list.appendChild(div);
   });
 }
-
 function filterChoose() { buildChooseList(document.getElementById('choose-search').value); }
 
 function saveDraft() {
   const site = sites[currentIdx];
-  const reading = document.getElementById('input-reading').value.trim();
-  const notes   = document.getElementById('input-notes').value.trim();
   if (!entries[site]) entries[site] = {};
+  const reading = document.getElementById('input-reading').value.trim();
   if (reading) entries[site].reading = reading;
-  entries[site].notes = notes;
+  entries[site].notes = document.getElementById('input-notes').value.trim();
   entries[site].site  = site;
   persistEntries();
-  showToast('Progress saved — safe to close the app', 3000);
+  showToast('Progress Saved — Safe To Close The App', 3000);
   setTimeout(() => goToList(), 500);
 }
 
 function goToList() { rebuildJumpMenu(); renderList(); show('list'); }
 
-// ── REVIEW & SUBMIT ────────────────────────────────────────────────────────
+// ── REVIEW ────────────────────────────────────────────────────────────────
 function handleSubmitClick() {
-  const done      = sites.filter(s => entries[s] && entries[s].saved).length;
-  const remaining = sites.length - done;
-  if (remaining > 0) {
-    showToast('You must complete all ' + remaining + ' remaining site(s) before submitting', 3500);
-    return;
-  }
+  const remaining = sites.length - sites.filter(s => entries[s]?.saved).length;
+  if (remaining > 0) { showToast('You must complete all ' + remaining + ' remaining site(s) before submitting', 3500); return; }
   goToReview();
 }
 
@@ -714,130 +728,117 @@ function goToReview() {
   document.getElementById('review-subtitle').textContent = sites.length + ' sites — ' + monthLabel;
   document.getElementById('submit-progress').classList.remove('show');
   document.getElementById('success-banner').classList.remove('show');
-  document.getElementById('btn-final-submit').disabled = false;
-  document.getElementById('btn-final-submit').textContent = 'Submit all meter reads';
-  document.getElementById('btn-back-edit').style.display = '';
-  document.getElementById('review-status').textContent = '';
+  document.getElementById('btn-final-submit').disabled    = false;
+  document.getElementById('btn-final-submit').textContent = 'Submit All Meter Reads';
+  document.getElementById('btn-back-edit').style.display  = '';
+  document.getElementById('review-status').textContent    = '';
 
-  const reviewList = document.getElementById('review-list');
-  reviewList.innerHTML = '';
+  const rl = document.getElementById('review-list'); rl.innerHTML = '';
   sites.forEach(site => {
     const e = entries[site] || {};
-    const div = document.createElement('div');
-    div.className = 'review-card';
+    const div = document.createElement('div'); div.className = 'review-card';
     div.innerHTML =
       '<div class="review-site">' + site + '</div>' +
       '<div class="review-row"><span class="review-label">Reading</span><span class="review-val">' + (e.reading || '—') + ' kWh</span></div>' +
       '<div class="review-row"><span class="review-label">Photo</span><span class="review-ok">Attached ✓</span></div>' +
       (e.notes ? '<div class="review-row"><span class="review-label">Notes</span><span class="review-val" style="font-size:12px;text-align:right;max-width:55%">' + e.notes + '</span></div>' : '');
-    reviewList.appendChild(div);
+    rl.appendChild(div);
   });
   show('review');
 }
 
-function setSubmitProgress(current, total, label) {
-  const pct = total ? Math.round(current / total * 100) : 0;
-  document.getElementById('submit-progress-fill').style.width = pct + '%';
+function setProgress(current, total, label) {
+  document.getElementById('submit-progress-fill').style.width = (total ? Math.round(current / total * 100) : 0) + '%';
   document.getElementById('submit-progress-label').textContent = label;
 }
 
+// ── SUBMIT ────────────────────────────────────────────────────────────────
 async function submitToMonday() {
   const btn      = document.getElementById('btn-final-submit');
   const statusEl = document.getElementById('review-status');
-  const progressEl = document.getElementById('submit-progress');
-  const successEl  = document.getElementById('success-banner');
+  const progEl   = document.getElementById('submit-progress');
+  const succEl   = document.getElementById('success-banner');
 
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
-  progressEl.classList.add('show');
+  btn.disabled = true; btn.textContent = 'Submitting...';
+  progEl.classList.add('show');
   document.getElementById('submit-progress-title').textContent = 'Submitting reads & uploading photos...';
-  statusEl.textContent = '';
-  statusEl.className = 'status-msg';
+  statusEl.textContent = ''; statusEl.className = 'status-msg';
 
   try {
-    // Step 1: ensure board exists
-    setSubmitProgress(0, sites.length, 'Setting up board...');
+    setProgress(0, sites.length, 'Setting up board...');
     const bid = await ensureBoard();
 
-    // Step 2: fetch column map
-    const br = await mondayGQL(`{ boards(ids: [${bid}]) { columns { id title type } } }`);
+    // Fetch column IDs
+    const br   = await mondayGQL(`{ boards(ids: [${bid}]) { columns { id title } } }`);
     const cols = br?.data?.boards?.[0]?.columns || [];
-    const colMap = {};
+    const cm   = {};
     cols.forEach(c => {
       const t = c.title.toLowerCase();
-      if (t === 'site number')         colMap.site    = c.id;
-      else if (t.includes('reading'))  colMap.reading = c.id;
-      else if (t === 'read month')     colMap.month   = c.id;
-      else if (t === 'notes')          colMap.notes   = c.id;
-      else if (t === 'meter picture')  colMap.photo   = c.id;
-      // creation_log populates automatically — no need to map
+      if (t === 'site number')        cm.site    = c.id;
+      else if (t.includes('reading')) cm.reading = c.id;
+      else if (t === 'read month')    cm.month   = c.id;
+      else if (t === 'notes')         cm.notes   = c.id;
+      else if (t === 'meter picture') cm.photo   = c.id;
     });
 
-    // Step 3: create items + upload photos
     let count = 0;
     for (const site of sites) {
       const e = entries[site] || {};
       count++;
-      setSubmitProgress(count - 0.5, sites.length, 'Creating item: ' + site + '...');
 
-      // Build column values (text/number columns only — file handled separately)
+      // Item name: "Meter Read — May 2026"
+      const itemName = 'Meter Read — ' + monthLabel;
+
+      setProgress(count - 0.5, sites.length, 'Creating item: ' + site + '...');
+
       const vals = {};
-      if (colMap.site    && e.site)    vals[colMap.site]    = e.site;
-      if (colMap.reading && e.reading) vals[colMap.reading] = e.reading;
-      if (colMap.month)                vals[colMap.month]   = monthLabel;
-      if (colMap.notes   && e.notes)   vals[colMap.notes]   = e.notes;
+      if (cm.site    && e.site)    vals[cm.site]    = e.site;
+      if (cm.reading && e.reading) vals[cm.reading] = e.reading;
+      if (cm.month)                vals[cm.month]   = monthLabel;
+      if (cm.notes   && e.notes)   vals[cm.notes]   = e.notes;
 
-      const valStr = JSON.stringify(JSON.stringify(vals));
+      const valStr  = JSON.stringify(JSON.stringify(vals));
       const itemRes = await mondayGQL(
-        `mutation { create_item(board_id: ${bid}, item_name: "${site} — ${monthLabel}", column_values: ${valStr}) { id } }`
+        `mutation { create_item(board_id: ${bid}, item_name: "${itemName}", column_values: ${valStr}) { id } }`
       );
       const itemId = itemRes?.data?.create_item?.id;
 
-      // Upload photo to Meter Picture (Files) column
-      if (itemId && colMap.photo && e.photoUrl) {
-        setSubmitProgress(count - 0.2, sites.length, 'Uploading photo: ' + site + '...');
-        const fname = (e.photoName || ('meter-' + site.replace(/\s+/g,'-').toLowerCase() + '-' + monthLabel.replace(/\s+/g,'-') + '.jpg'));
-        await uploadFileToMonday(itemId, colMap.photo, e.photoUrl, fname);
+      // Upload photo to Meter Picture column
+      if (itemId && cm.photo && e.photoUrl) {
+        setProgress(count - 0.2, sites.length, 'Uploading photo: ' + site + '...');
+        const fname = e.photoName || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '-' + monthLabel.replace(/\s+/g, '-') + '.jpg');
+        await uploadPhotoToMonday(itemId, cm.photo, e.photoUrl, fname);
       }
 
-      setSubmitProgress(count, sites.length, count + ' of ' + sites.length + ' complete');
+      setProgress(count, sites.length, count + ' of ' + sites.length + ' complete');
     }
 
-    // Success
-    progressEl.classList.remove('show');
-    btn.textContent = 'All meter reads submitted ✓';
-    btn.disabled = true;
+    // Done
+    progEl.classList.remove('show');
+    btn.textContent = 'All Meter Reads Submitted ✓';
+    btn.disabled    = true;
     document.getElementById('btn-back-edit').style.display = 'none';
-
-    const subText = count + ' meter reads submitted on ' + todayStr + ' for ' + monthLabel + '.';
-    document.getElementById('success-banner-sub').textContent = subText;
-    successEl.classList.add('show');
-
-    // Scroll success banner into view
-    successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    // Clear saved data
+    document.getElementById('success-banner-sub').textContent =
+      count + ' meter reads submitted on ' + todayStr + ' for ' + monthLabel + '.';
+    succEl.classList.add('show');
+    succEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     try { localStorage.removeItem(ENTRIES_KEY); } catch(e2) {}
 
   } catch(err) {
-    progressEl.classList.remove('show');
-    btn.disabled = false;
-    btn.textContent = 'Submit all meter reads';
+    progEl.classList.remove('show');
+    btn.disabled = false; btn.textContent = 'Submit All Meter Reads';
     statusEl.textContent = 'Error: ' + err.message + '. Please try again.';
-    statusEl.className = 'status-msg error';
+    statusEl.className   = 'status-msg error';
   }
 }
 
-// ── RESET ──────────────────────────────────────────────────────────────────
+// ── RESET ─────────────────────────────────────────────────────────────────
 function resetApp() {
   entries = {};
   try { localStorage.removeItem(ENTRIES_KEY); } catch(e) {}
-  rebuildJumpMenu();
-  renderList();
-  show('list');
+  rebuildJumpMenu(); renderList(); show('list');
 }
 
-// ── INIT ───────────────────────────────────────────────────────────────────
 loadSites();
 </script>
 </body>
