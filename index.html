@@ -381,11 +381,111 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <span class="card-badge badge-active">Active</span>
         <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
       </div>
+
+      <div class="feature-card" onclick="show('screen-maintenance')">
+        <div class="card-icon" style="background:var(--green-light);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:22px;height:22px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Maintenance Tracking</div>
+          <div class="card-desc">Log lawncare &amp; site maintenance for guest billing</div>
+        </div>
+        <span class="card-badge badge-active">Active</span>
+        <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
     </div>
 
     <div class="dash-divider"></div>
     <div class="dash-footer">
       <div class="dash-footer-note">Blue Ridge RV Park</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- MAINTENANCE TRACKING                           -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div id="screen-maintenance" class="screen">
+    <div class="topbar">
+      <button class="back-btn" onclick="show('screen-dashboard')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <div style="flex:1">
+        <div class="topbar-title">Maintenance Tracking</div>
+        <div class="topbar-sub">Lawn Care &amp; Site Maintenance Log</div>
+      </div>
+    </div>
+
+    <div class="insp-hero" style="background:linear-gradient(160deg,#0A4A1E 0%,#1D9E75 60%,#25C28F 100%);">
+      <div class="insp-hero-icon">
+        <svg viewBox="0 0 24 24" style="stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:26px;height:26px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="insp-hero-title">Site Maintenance Log</div>
+      <div class="insp-hero-sub">Log lawncare and site work for accurate guest billing</div>
+    </div>
+
+    <div class="insp-body">
+
+      <!-- WHEN TO SUBMIT -->
+      <div style="background:rgba(29,158,117,0.1);border:1px solid rgba(29,158,117,0.2);border-radius:var(--r-lg);padding:0.9rem 1rem;margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;">
+        <svg viewBox="0 0 24 24" style="width:17px;height:17px;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div style="font-size:12.5px;color:var(--green-dark);line-height:1.55;"><strong>When to submit:</strong> Each time a guest requests a mow or a guest compliance notice goes unfulfilled and on-site is requested to perform the work from management. <strong>This form is primarily for logging lawncare at this time.</strong></div>
+      </div>
+
+      <!-- BILLING REFERENCE -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:0.9rem 1rem;margin-bottom:12px;">
+        <div style="font-size:11px;font-weight:600;color:var(--text-ter);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Billing Baseline</div>
+        <div style="display:flex;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border);">
+          <div style="width:36px;height:36px;background:var(--green-light);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:600;color:var(--text);">Guest-Requested Mow</div>
+            <div style="font-size:12px;color:var(--text-sec);margin-top:2px;line-height:1.4;">$15 billed to guest — split 50/50 between on-site management and the RV park</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:36px;height:36px;background:var(--amber-light);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--amber);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:600;color:var(--text);">Compliance Violation Mow</div>
+            <div style="font-size:12px;color:var(--text-sec);margin-top:2px;line-height:1.4;">$50–$100 billed to guest per violation — split 50/50 between on-site management and the RV park</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRIMARY CTA -->
+      <div class="insp-cta-block" style="background:linear-gradient(135deg,#1D9E75,#25C28F);" onclick="window.open('https://forms.monday.com/forms/35440e528a05f833e3ad880521ea3117?r=use1','_blank')">
+        <div class="insp-cta-icon">
+          <svg viewBox="0 0 24 24" style="stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:22px;height:22px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="insp-cta-body">
+          <div class="insp-cta-title">Open Maintenance Log Form</div>
+          <div class="insp-cta-sub">Tap to open form — submit once per maintenance event</div>
+        </div>
+        <span class="insp-cta-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+
+      <!-- WHAT THE FORM CAPTURES -->
+      <div class="insp-checklist">
+        <div class="insp-checklist-title">What the form captures</div>
+        <div class="insp-checklist-row" style="color:var(--text-sec);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;width:14px;height:14px;flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+          Maintenance item description and type
+        </div>
+        <div class="insp-checklist-row" style="color:var(--text-sec);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;width:14px;height:14px;flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+          Site number(s) work was performed on
+        </div>
+        <div class="insp-checklist-row" style="color:var(--text-sec);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;width:14px;height:14px;flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+          Status — completed, scheduled, or in progress
+        </div>
+        <div class="insp-checklist-row" style="color:var(--text-sec);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;width:14px;height:14px;flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+          Comments — indicate any applicable comments we need to be aware of
+        </div>
+      </div>
+
+      <button class="btn-secondary" style="margin-bottom:2rem;" onclick="show('screen-dashboard')">← Back To Dashboard</button>
     </div>
   </div>
 
