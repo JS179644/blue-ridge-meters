@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<title>Blue Ridge TX — Meter Reads</title>
+<title>Blue Ridge TX — Site Management</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
@@ -12,29 +12,132 @@
   --blue: #185FA5; --blue-light: #E6F1FB; --blue-mid: #378ADD;
   --green: #1D9E75; --green-light: #E1F5EE; --green-dark: #0F6E56;
   --amber: #BA7517; --amber-light: #FEF3DC; --amber-dark: #854F0B;
+  --purple: #5B35C2; --purple-light: #EEEAFC;
+  --teal: #0E7C86; --teal-light: #E0F4F5;
+  --orange: #C25A1A; --orange-light: #FDEEDE;
   --red: #A32D2D;
   --gray-50: #F8F8F7; --gray-100: #EFEFED; --gray-200: #D3D1C7;
-  --gray-400: #888780; --gray-600: #5F5E5A; --gray-900: #1A1A18;
+  --gray-400: #888780; --gray-900: #1A1A18;
   --text: #1A1A18; --text-sec: #5F5E5A; --text-ter: #888780;
   --border: rgba(0,0,0,0.09); --border-mid: rgba(0,0,0,0.16);
-  --r-md: 10px; --r-lg: 14px;
+  --r-md: 10px; --r-lg: 14px; --r-xl: 20px;
   --font: 'DM Sans', system-ui, sans-serif;
 }
 body { font-family: var(--font); background: var(--gray-50); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 .app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #fff; }
 .screen { display: none; }
 .screen.active { display: block; }
-.hero { background: var(--blue); padding: 1.5rem 1.1rem 1.25rem; text-align: center; }
-.hero-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.6rem; }
-.hero-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.hero-title { font-size: 18px; font-weight: 600; color: #fff; letter-spacing: -0.01em; line-height: 1.25; }
-.hero-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+/* ── GRADIENT HERO ── */
+.grad-hero { background: linear-gradient(160deg, #0D3E72 0%, #185FA5 60%, #2278CC 100%); padding: 2rem 1.25rem 1.75rem; text-align: center; position: relative; overflow: hidden; }
+.grad-hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+.grad-hero::after  { content: ''; position: absolute; bottom: -30px; left: -20px; width: 120px; height: 120px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+.grad-hero-logo { width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem; }
+.grad-hero-logo svg { width: 36px; height: 36px; }
+.grad-hero-title { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
+.grad-hero-sub { font-size: 12.5px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+.grad-hero-pill { font-size: 11.5px; color: rgba(255,255,255,0.5); margin-top: 10px; background: rgba(255,255,255,0.1); display: inline-block; padding: 3px 12px; border-radius: 20px; }
+
+/* ── DASHBOARD ── */
+.section-label { font-size: 11px; font-weight: 600; color: var(--text-ter); text-transform: uppercase; letter-spacing: 0.08em; padding: 1.25rem 1.25rem 0.5rem; }
+.feature-cards { padding: 0 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 12px; }
+.feature-card { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: var(--r-xl); padding: 1rem 1.1rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; }
+.feature-card:hover { border-color: var(--border-mid); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.feature-card:active { transform: scale(0.985); }
+.feature-card.primary-card { border-color: rgba(24,95,165,0.25); background: linear-gradient(135deg, #fff 60%, var(--blue-light)); }
+.feature-card.primary-card:hover { border-color: var(--blue); box-shadow: 0 2px 16px rgba(24,95,165,0.12); }
+.card-icon { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.card-icon.blue   { background: var(--blue-light); }
+.card-icon.purple { background: var(--purple-light); }
+.card-icon.teal   { background: var(--teal-light); }
+.card-icon.orange { background: var(--orange-light); }
+.card-icon svg { width: 22px; height: 22px; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.card-icon.blue svg   { stroke: var(--blue); }
+.card-icon.purple svg { stroke: var(--purple); }
+.card-icon.teal svg   { stroke: var(--teal); }
+.card-icon.orange svg { stroke: var(--orange); }
+.card-body { flex: 1; min-width: 0; }
+.card-title { font-size: 14.5px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.card-desc { font-size: 12px; color: var(--text-sec); margin-top: 2px; line-height: 1.4; }
+.card-badge { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; }
+.badge-active { background: var(--blue-light); color: var(--blue); }
+.badge-soon   { background: var(--gray-100); color: var(--text-ter); }
+.card-arrow svg { width: 16px; height: 16px; stroke: var(--text-ter); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.dash-divider { height: 1px; background: var(--border); margin: 0 1.25rem; }
+.dash-footer { padding: 1rem 1.25rem 2rem; }
+.dash-footer-note { font-size: 11.5px; color: var(--text-ter); text-align: center; }
+
+/* ── TOPBAR ── */
 .topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0.85rem 1.1rem; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 20; }
 .topbar-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
 .topbar-sub { font-size: 11px; color: var(--text-sec); margin-top: 1px; }
 .back-btn { background: none; border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-sec); flex-shrink: 0; }
 .back-btn:hover { background: var(--gray-100); }
 .back-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── CASH/CHECK QRG HERO ── */
+.qrg-hero { background: linear-gradient(160deg, #7A3200 0%, #C25A1A 60%, #E07030 100%); padding: 1.75rem 1.25rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+.qrg-hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 130px; height: 130px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.qrg-hero::after  { content: ''; position: absolute; bottom: -20px; left: -15px; width: 100px; height: 100px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.qrg-hero-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; }
+.qrg-hero-icon svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.qrg-hero-title { font-size: 17px; font-weight: 600; color: #fff; line-height: 1.2; }
+.qrg-hero-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+.qrg-body { padding: 1.1rem; }
+
+/* ── NUMBERED STEP BLOCKS ── */
+.step-block { border-radius: var(--r-xl); margin-bottom: 12px; overflow: hidden; border: 1px solid var(--border); }
+.step-block-header { display: flex; align-items: center; gap: 12px; padding: 1rem 1.1rem; }
+.step-block-header.orange-bg { background: linear-gradient(135deg, #C25A1A, #E07030); }
+.step-block-header.gray-bg   { background: var(--gray-50); border-bottom: 1px solid var(--border); }
+.step-num-badge { width: 28px; height: 28px; background: rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-num-badge.dark { background: var(--orange); }
+.step-num-badge span { font-size: 13px; font-weight: 600; color: #fff; }
+.step-block-title { font-size: 14px; font-weight: 600; flex: 1; }
+.step-block-title.white { color: #fff; }
+.step-block-title.dark  { color: var(--text); }
+.step-block-arrow svg { width: 16px; height: 16px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.step-block-arrow.white svg { stroke: rgba(255,255,255,0.7); }
+.step-block-arrow.dark svg  { stroke: var(--text-ter); }
+
+/* Step 1 — tappable orange CTA */
+.step1-cta { cursor: pointer; transition: opacity 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; }
+.step1-cta:hover { opacity: 0.92; }
+.step1-cta:active { transform: scale(0.98); }
+.step1-sub { background: rgba(255,255,255,0.12); padding: 0.7rem 1.1rem; }
+.step1-sub p { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+
+/* Step 2 — deposit slip */
+.step2-body { padding: 0.9rem 1.1rem; background: #fff; }
+.deposit-email { font-size: 15px; font-weight: 600; color: var(--text); text-align: center; padding: 9px 12px; background: var(--orange-light); border-radius: var(--r-md); margin: 8px 0; border: 1px solid rgba(194,90,26,0.2); }
+.step2-note { font-size: 12.5px; color: var(--text-sec); line-height: 1.55; }
+.step2-note strong { font-weight: 600; color: var(--text); }
+
+/* ── CONVENIENCE FEE NOTE ── */
+.fee-note { display: flex; gap: 10px; align-items: flex-start; background: var(--amber-light); border: 1px solid rgba(186,117,23,0.25); border-radius: var(--r-lg); padding: 0.85rem 1rem; margin-bottom: 12px; }
+.fee-note svg { width: 17px; height: 17px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.fee-note-text { font-size: 12.5px; color: var(--amber-dark); line-height: 1.5; }
+.fee-note-text strong { font-weight: 600; }
+
+/* ── PDF BUTTON ── */
+.pdf-btn { display: flex; align-items: center; gap: 12px; background: var(--gray-50); border: 1px solid var(--border-mid); border-radius: var(--r-lg); padding: 0.9rem 1rem; cursor: pointer; transition: background 0.15s, border-color 0.15s; text-decoration: none; margin-bottom: 12px; -webkit-tap-highlight-color: transparent; }
+.pdf-btn:hover { background: #fff; border-color: var(--orange); }
+.pdf-btn:active { background: var(--orange-light); }
+.pdf-btn-icon { width: 38px; height: 38px; background: var(--orange-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.pdf-btn-icon svg { width: 20px; height: 20px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pdf-btn-body { flex: 1; }
+.pdf-btn-title { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.pdf-btn-sub { font-size: 12px; color: var(--text-sec); margin-top: 1px; }
+.pdf-btn-arrow svg { width: 15px; height: 15px; stroke: var(--text-ter); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── NO NEWBOOK NOTE ── */
+.nonewbook-note { display: flex; gap: 10px; align-items: flex-start; background: var(--blue-light); border: 1px solid rgba(24,95,165,0.2); border-radius: var(--r-lg); padding: 0.9rem 1rem; margin-bottom: 12px; }
+.nonewbook-note svg { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.nonewbook-note-body { font-size: 12.5px; color: #1a5a9a; line-height: 1.55; }
+.nonewbook-note-body strong { font-weight: 600; }
+
+/* ── METER READS ── */
 .welcome { background: var(--blue-light); border-bottom: 1px solid rgba(24,95,165,0.12); padding: 1rem 1.1rem; }
 .welcome-title { font-size: 13.5px; font-weight: 600; color: var(--blue); margin-bottom: 6px; }
 .welcome-steps { list-style: none; }
@@ -66,7 +169,6 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .progress-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width 0.4s ease; }
 .jump-wrap { padding: 0 1.1rem 0.65rem; }
 .jump-select { width: 100%; padding: 8px 10px; border: 1px solid var(--border-mid); border-radius: var(--r-md); font-size: 13px; font-family: var(--font); color: var(--text); background: var(--gray-50); outline: none; cursor: pointer; }
-.jump-select:focus { border-color: var(--blue-mid); }
 .site-list { padding: 0 1.1rem 0.5rem; }
 .site-card { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 0.75rem 0.9rem; margin-bottom: 7px; cursor: pointer; transition: border-color 0.15s, background 0.15s; -webkit-tap-highlight-color: transparent; }
 .site-card:hover { border-color: var(--border-mid); }
@@ -83,9 +185,9 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .site-card.done .site-name { color: var(--green-dark); }
 .site-card.amber .site-name { color: var(--amber-dark); }
 .site-badge { font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
-.badge-ns { background: var(--gray-100); color: var(--text-ter); }
+.badge-ns    { background: var(--gray-100); color: var(--text-ter); }
 .badge-amber { background: #F5C242; color: #6B3F00; }
-.badge-done { background: var(--green); color: #fff; }
+.badge-done  { background: var(--green); color: #fff; }
 .chevron svg { width: 14px; height: 14px; stroke: var(--text-ter); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .sticky-submit { position: sticky; bottom: 0; background: #fff; border-top: 1px solid var(--border); padding: 0.75rem 1.1rem; z-index: 15; }
 .save-indicator { font-size: 11px; color: var(--green-dark); text-align: center; padding: 4px 0 0; display: none; text-transform: uppercase; letter-spacing: 0.03em; }
@@ -94,16 +196,12 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .btn-primary:active { transform: scale(0.98); }
 .btn-primary:disabled { background: var(--gray-200); color: var(--text-ter); cursor: default; transform: none; }
 .btn-primary.green { background: var(--green); }
-.btn-primary.green:hover { background: var(--green-dark); }
 .btn-secondary { width: 100%; padding: 12px; background: transparent; color: var(--text-sec); border: 1px solid var(--border-mid); border-radius: var(--r-lg); font-size: 12.5px; font-weight: 600; font-family: var(--font); cursor: pointer; margin-top: 9px; text-transform: uppercase; letter-spacing: 0.05em; }
 .btn-secondary:hover { background: var(--gray-50); }
 .next-nav { display: flex; gap: 8px; margin-top: 1.1rem; }
 .next-nav button { flex: 1; padding: 12px 6px; border-radius: var(--r-lg); font-size: 11px; font-weight: 600; font-family: var(--font); cursor: pointer; border: 1px solid var(--border-mid); background: #fff; color: var(--text-sec); text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; transition: background 0.15s; }
-.next-nav button:hover { background: var(--gray-50); }
 .next-nav button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
-.next-nav button.primary:hover { background: var(--blue-mid); }
 .next-nav button.primary.green { background: var(--green); border-color: var(--green); }
-.next-nav button.primary.green:hover { background: var(--green-dark); }
 .autosave-note { font-size: 11px; color: var(--green-dark); text-align: center; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
 .autosave-note svg { width: 12px; height: 12px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .entry-body { padding: 1.1rem; }
@@ -124,6 +222,8 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .photo-taken svg { stroke: var(--green); }
 .photo-taken .photo-zone-label { color: var(--green-dark); font-weight: 500; }
 .photo-taken .photo-zone-hint { color: var(--green-dark); opacity: 0.7; }
+.compressing-note { font-size: 11px; color: var(--blue); text-align: center; margin-top: 6px; display: none; }
+.compressing-note.show { display: block; }
 .status-msg { font-size: 12.5px; text-align: center; margin-top: 8px; min-height: 16px; }
 .status-msg.error { color: var(--red); }
 .status-msg.success { color: var(--green-dark); }
@@ -136,10 +236,14 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .review-ok { color: var(--green-dark); font-weight: 500; }
 .submit-progress { background: var(--blue-light); border: 1px solid rgba(24,95,165,0.15); border-radius: var(--r-lg); padding: 1rem; margin-bottom: 1rem; display: none; }
 .submit-progress.show { display: block; }
-.submit-progress-title { font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 8px; }
-.submit-progress-track { height: 6px; background: rgba(24,95,165,0.15); border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
-.submit-progress-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.3s; }
-.submit-progress-label { font-size: 12px; color: var(--blue); }
+.submit-progress-title { font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+.phase-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.phase-label { font-size: 12px; color: var(--blue); width: 110px; flex-shrink: 0; }
+.phase-track { flex: 1; height: 5px; background: rgba(24,95,165,0.15); border-radius: 99px; overflow: hidden; }
+.phase-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.3s; }
+.phase-fill.green { background: var(--green); }
+.phase-tick { font-size: 13px; flex-shrink: 0; width: 16px; text-align: center; }
+.submit-progress-label { font-size: 11.5px; color: var(--blue); margin-top: 4px; }
 .success-banner { background: var(--green-light); border: 1px solid rgba(29,158,117,0.25); border-radius: var(--r-lg); padding: 1rem 1.1rem; margin-bottom: 1rem; display: none; }
 .success-banner.show { display: block; }
 .success-banner-title { font-size: 14px; font-weight: 600; color: var(--green-dark); margin-bottom: 3px; }
@@ -157,29 +261,197 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 <div class="app">
   <div id="toast" class="toast"></div>
 
-  <!-- LOADING -->
-  <div id="screen-loading" class="screen active">
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- DASHBOARD                                      -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div id="screen-dashboard" class="screen active">
+    <div class="grad-hero">
+      <div class="grad-hero-logo">
+        <svg viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="6" width="34" height="16" rx="2.5" fill="rgba(255,255,255,0.25)" stroke="white" stroke-width="1.8"/>
+          <line x1="36" y1="14" x2="44" y2="14" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="45" cy="14" r="1.8" fill="white"/>
+          <rect x="22" y="9" width="7" height="10" rx="1" stroke="white" stroke-width="1.4"/>
+          <rect x="6" y="9.5" width="6" height="5" rx="1" stroke="white" stroke-width="1.4"/>
+          <rect x="14" y="9.5" width="6" height="5" rx="1" stroke="white" stroke-width="1.4"/>
+          <line x1="4" y1="6" x2="4" y2="3" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4" y1="3" x2="20" y2="3" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="20" y1="3" x2="20" y2="6" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="10" cy="23.5" r="3.5" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="1.8"/>
+          <circle cx="10" cy="23.5" r="1.2" fill="white"/>
+          <circle cx="28" cy="23.5" r="3.5" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="1.8"/>
+          <circle cx="28" cy="23.5" r="1.2" fill="white"/>
+        </svg>
+      </div>
+      <div class="grad-hero-title">Blue Ridge Texas<br>RV Park</div>
+      <div class="grad-hero-sub">Site Management</div>
+      <div class="grad-hero-pill" id="dash-date"></div>
+    </div>
+
+    <div class="section-label">What would you like to do?</div>
+
+    <div class="feature-cards">
+      <div class="feature-card primary-card" onclick="startMeterReads()">
+        <div class="card-icon blue">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Monthly Meter Reads</div>
+          <div class="card-desc">Record electric meter readings for all occupied sites</div>
+        </div>
+        <span class="card-badge badge-active">Active</span>
+        <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+
+      <div class="feature-card" id="card-checkin" onclick="openForm('checkin')">
+        <div class="card-icon purple">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Site Check-In</div>
+          <div class="card-desc">Pre move-in site inspection form</div>
+        </div>
+        <span class="card-badge badge-soon" id="badge-checkin">Coming Soon</span>
+        <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+
+      <div class="feature-card" id="card-moveout" onclick="openForm('moveout')">
+        <div class="card-icon teal">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Site Post Move-Out</div>
+          <div class="card-desc">Post move-out site inspection form</div>
+        </div>
+        <span class="card-badge badge-soon" id="badge-moveout">Coming Soon</span>
+        <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+
+      <div class="feature-card" onclick="show('screen-cashcheck')">
+        <div class="card-icon orange">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Cash &amp; Check Collection</div>
+          <div class="card-desc">Process guide + tracking form submission</div>
+        </div>
+        <span class="card-badge badge-active">Active</span>
+        <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+    </div>
+
+    <div class="dash-divider"></div>
+    <div class="dash-footer">
+      <div class="dash-footer-note">Blue Ridge Texas RV Park</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- CASH & CHECK                                   -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div id="screen-cashcheck" class="screen">
+    <div class="topbar">
+      <button class="back-btn" onclick="show('screen-dashboard')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <div style="flex:1">
+        <div class="topbar-title">Cash &amp; Check Collection</div>
+        <div class="topbar-sub">Process Guide &amp; Tracking Form</div>
+      </div>
+    </div>
+
+    <div class="qrg-hero">
+      <div class="qrg-hero-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      </div>
+      <div class="qrg-hero-title">Cash &amp; Check<br>Collection Process</div>
+      <div class="qrg-hero-sub">Complete both steps below after every payment</div>
+    </div>
+
+    <div class="qrg-body">
+
+      <!-- STEP 1 — TRACKING FORM -->
+      <div class="step-block">
+        <div class="step-block-header orange-bg step1-cta" onclick="window.open('https://forms.monday.com/forms/fdc1ce88a0e3998f19a9f5b89aade906?r=use1','_blank')">
+          <div class="step-num-badge"><span>1</span></div>
+          <div class="step-block-title white">Open Cash/Check Tracking Form</div>
+          <span class="step-block-arrow white"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="step1-sub">
+          <p>Submit this form after <strong style="color:#fff">every</strong> cash or check payment collected on site. Includes a Newbook receipt number field for reference.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2 — DEPOSIT SLIP -->
+      <div class="step-block">
+        <div class="step-block-header gray-bg">
+          <div class="step-num-badge dark"><span>2</span></div>
+          <div class="step-block-title dark">Deposit Slip — Final Step</div>
+        </div>
+        <div class="step2-body">
+          <div class="step2-note">After depositing at the bank, email the itemized deposit slip to:</div>
+          <div class="deposit-email">info@wearelcp.com</div>
+          <div class="step2-note">Include the amount toward each <strong>booking</strong>, <strong>site</strong>, and <strong>guest name</strong>. The team will register the payment on the backend.</div>
+        </div>
+      </div>
+
+      <!-- CONVENIENCE FEE NOTE -->
+      <div class="fee-note">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div class="fee-note-text"><strong>Note:</strong> A <strong>$5 convenience fee</strong> applies to all cash and physical check payments.</div>
+      </div>
+
+      <!-- VIEW FULL PROCESS GUIDE PDF -->
+      <a class="pdf-btn" href="https://js179644.github.io/blue-ridge-meters/cash-check-qrg.pdf" target="_blank">
+        <div class="pdf-btn-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13h6M9 17h4"/></svg>
+        </div>
+        <div class="pdf-btn-body">
+          <div class="pdf-btn-title">View Full Process Guide (PDF)</div>
+          <div class="pdf-btn-sub">Full Newbook QRG — opens in browser</div>
+        </div>
+        <span class="pdf-btn-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <!-- NO NEWBOOK ACCESS — bottom -->
+      <div class="nonewbook-note">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div class="nonewbook-note-body"><strong>No Newbook access?</strong> Log the payment details via the tracking form above, then email the itemized deposit slip to info@wearelcp.com once deposited at the bank. The team will register the payment on the backend.</div>
+      </div>
+
+      <button class="btn-secondary" style="margin-bottom:2rem;" onclick="show('screen-dashboard')">← Back To Dashboard</button>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- METER READS — LOADING                          -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div id="screen-loading" class="screen">
     <div class="loading-screen"><div class="spinner"></div><p>Loading occupied sites...</p></div>
   </div>
 
-  <!-- SITE LIST -->
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- METER READS — SITE LIST                        -->
+  <!-- ══════════════════════════════════════════════ -->
   <div id="screen-list" class="screen">
-    <div class="hero">
-      <div class="hero-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <div class="hero-title">Blue Ridge Texas<br>Monthly Meter Reads</div>
-      <div class="hero-sub" id="topbar-month"></div>
+    <div class="grad-hero">
+      <div class="grad-hero-logo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="grad-hero-title">Monthly Meter Reads</div>
+      <div class="grad-hero-sub">Blue Ridge Texas RV Park</div>
+      <div class="grad-hero-pill" id="topbar-month"></div>
     </div>
     <div class="welcome">
       <div class="welcome-title">How To Use This App</div>
       <ul class="welcome-steps">
         <li><span class="num">1</span> Tap any site below to open the meter read form</li>
         <li><span class="num">2</span> Enter the kWh number shown on the meter display</li>
-        <li><span class="num">3</span> Take a photo — <strong>include the site number sign and meter face in one shot</strong></li>
-        <li><span class="num">4</span> Tap <strong>Save &amp; Next Site</strong> — progress saves automatically every time</li>
+        <li><span class="num">3</span> Take a photo of the meter</li>
+        <li><span class="num">4</span> Tap <strong>Save &amp; Next Site</strong></li>
         <li><span class="num">5</span> On the last site the button changes to <strong>Submit All Sites</strong></li>
         <li><span class="num">6</span> Safe to close the app anytime — your progress is always saved</li>
       </ul>
-      <div class="photo-tip"><strong>Photo tip:</strong> Stand back so both the <strong>site number sign</strong> and <strong>meter face</strong> are clearly visible in one shot. Required for verification.</div>
+      <div class="photo-tip"><strong>Photo tip:</strong> Include the <strong>site number sign</strong> and <strong>meter face</strong> in the photo. Required for verification.</div>
     </div>
     <div class="occ-row">
       <span class="occ-badge" id="occ-badge">
@@ -211,6 +483,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
     </div>
     <div class="site-list" id="site-list"></div>
     <div class="sticky-submit">
+      <button class="btn-secondary" style="margin-top:0;margin-bottom:8px;" onclick="show('screen-dashboard')">← Back To Dashboard</button>
       <button class="btn-primary" onclick="handleSubmitClick()">Review &amp; Submit All Reads</button>
       <div class="save-indicator" id="save-indicator">Progress Saved To This Device</div>
     </div>
@@ -240,13 +513,14 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
           <div class="photo-zone-hint">Include site number sign + meter face in one shot</div>
           <img id="photo-preview" class="photo-preview" alt="Meter photo preview" />
         </div>
+        <div class="compressing-note" id="compressing-note">Optimizing photo size...</div>
       </div>
       <div class="field-group">
         <div class="field-label">Notes (Optional)</div>
         <textarea class="field-input" id="input-notes" rows="2" placeholder="Any issues, damage, or unusual readings..."></textarea>
       </div>
       <div class="status-msg" id="entry-status"></div>
-      <div class="next-nav" id="next-nav">
+      <div class="next-nav">
         <button class="primary" id="btn-save-next" onclick="saveAndNext()">Save &amp; Next Site</button>
         <button id="btn-save-choose" onclick="saveAndChoose()">Save &amp; Select Next Site</button>
       </div>
@@ -261,7 +535,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
   <!-- CHOOSE NEXT -->
   <div id="screen-choose" class="screen">
     <div class="topbar">
-      <button class="back-btn" onclick="show('entry')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <button class="back-btn" onclick="show('screen-entry')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
       <div style="flex:1"><div class="topbar-title">Select Next Site</div><div class="topbar-sub">Tap the site you're heading to next</div></div>
     </div>
     <div style="padding:0.75rem 1.1rem;">
@@ -281,8 +555,17 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
     </div>
     <div class="review-body">
       <div class="submit-progress" id="submit-progress">
-        <div class="submit-progress-title">Submitting reads &amp; uploading photos...</div>
-        <div class="submit-progress-track"><div class="submit-progress-fill" id="submit-progress-fill" style="width:0%"></div></div>
+        <div class="submit-progress-title" id="submit-progress-title">Submitting...</div>
+        <div class="phase-row">
+          <span class="phase-label">Creating items</span>
+          <div class="phase-track"><div class="phase-fill" id="phase1-fill" style="width:0%"></div></div>
+          <span class="phase-tick" id="phase1-tick"></span>
+        </div>
+        <div class="phase-row">
+          <span class="phase-label">Uploading photos</span>
+          <div class="phase-track"><div class="phase-fill green" id="phase2-fill" style="width:0%"></div></div>
+          <span class="phase-tick" id="phase2-tick"></span>
+        </div>
         <div class="submit-progress-label" id="submit-progress-label">Starting...</div>
       </div>
       <div class="success-banner" id="success-banner">
@@ -304,20 +587,24 @@ const SHEET_ID     = '1oQrQ3uJUepiyekoCC60j3_LxIoDtDhlsZMaLaLGohGg';
 const ENTRIES_KEY  = 'br_meter_entries';
 const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC45MDdaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.P1Nn9KU03qSVj9rzQBu_CrA0izkUYm4-m4UMKu41lPE';
 const BOARD_ID     = '18413790885';
+const FORM_CHECKIN = '';
+const FORM_MOVEOUT = '';
+const MAX_PHOTO_PX  = 1400;
+const PHOTO_QUALITY = 0.72;
 
 const MONTHS     = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const now        = new Date();
 const monthLabel = MONTHS[now.getMonth()] + ' ' + now.getFullYear();
 const todayStr   = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+document.getElementById('dash-date').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
 let allSites = [], occupiedSites = [], sites = [];
-let entries = {}, currentIdx = 0, showAll = false;
-let resetTimer = null;
+let entries = {}, currentIdx = 0, showAll = false, resetTimer = null, sitesLoaded = false;
 try { entries = JSON.parse(localStorage.getItem(ENTRIES_KEY) || '{}'); } catch(e) { entries = {}; }
 
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-' + id).classList.add('active');
+  document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
 }
 function showToast(msg, dur) {
@@ -332,6 +619,21 @@ function persistEntries() {
   const si = document.getElementById('save-indicator');
   if (si) { si.classList.add('show'); setTimeout(() => si.classList.remove('show'), 2500); }
 }
+
+async function startMeterReads() {
+  if (!sitesLoaded) { show('screen-loading'); await loadSites(); }
+  else { rebuildJumpMenu(); renderList(); show('screen-list'); }
+}
+function openForm(type) {
+  const url = type === 'checkin' ? FORM_CHECKIN : FORM_MOVEOUT;
+  if (!url) { showToast('This form is coming soon — check back next update!', 3000); return; }
+  window.open(url, '_blank');
+}
+function refreshDashBadges() {
+  if (FORM_CHECKIN) { document.getElementById('badge-checkin').textContent = 'Open Form'; document.getElementById('badge-checkin').className = 'card-badge badge-active'; }
+  if (FORM_MOVEOUT) { document.getElementById('badge-moveout').textContent = 'Open Form'; document.getElementById('badge-moveout').className = 'card-badge badge-active'; }
+}
+refreshDashBadges();
 
 async function mondayGQL(query) {
   const r = await fetch('https://api.monday.com/v2', {
@@ -350,9 +652,9 @@ async function uploadPhotoViaWorker(itemId, columnId, dataUrl, filename) {
   const bstr = atob(arr[1]);
   const u8   = new Uint8Array(bstr.length);
   for (let i = 0; i < bstr.length; i++) u8[i] = bstr.charCodeAt(i);
-  const blob = new Blob([u8], { type: mime });
+  const blob     = new Blob([u8], { type: mime });
   const gqlQuery = `mutation add_file($file: File!) { add_file_to_column(item_id: ${itemId}, column_id: "${columnId}", file: $file) { id } }`;
-  const form = new FormData();
+  const form     = new FormData();
   form.append('query', gqlQuery);
   form.append('variables[file]', blob, filename);
   const r = await fetch(WORKER_URL, { method: 'POST', body: form });
@@ -377,8 +679,29 @@ async function getColumnMap() {
   return cm;
 }
 
+function compressPhoto(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = evt => {
+      const img = new Image();
+      img.onload = () => {
+        let w = img.width, h = img.height;
+        if (w > MAX_PHOTO_PX || h > MAX_PHOTO_PX) {
+          if (w > h) { h = Math.round(h * MAX_PHOTO_PX / w); w = MAX_PHOTO_PX; }
+          else       { w = Math.round(w * MAX_PHOTO_PX / h); h = MAX_PHOTO_PX; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', PHOTO_QUALITY));
+      };
+      img.src = evt.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 async function loadSites() {
-  show('loading');
   allSites = Array.from({ length: 64 }, (_, i) => 'Site ' + (i + 1));
   try {
     const res  = await fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`);
@@ -391,9 +714,10 @@ async function loadSites() {
   } catch(e) { occupiedSites = []; }
   if (!occupiedSites.length) occupiedSites = allSites.slice();
   sites = occupiedSites.slice();
+  sitesLoaded = true;
   document.getElementById('month-label').textContent  = monthLabel;
   document.getElementById('topbar-month').textContent = monthLabel;
-  rebuildJumpMenu(); renderList(); show('list');
+  rebuildJumpMenu(); renderList(); show('screen-list');
   const saved = Object.keys(entries).filter(k => entries[k]?.reading).length;
   if (saved > 0) showToast('Resumed — ' + saved + ' site(s) already have data', 3500);
 }
@@ -414,9 +738,9 @@ function rebuildJumpMenu() {
   const sel = document.getElementById('jump-select');
   sel.innerHTML = '<option value="">— Jump To A Specific Site —</option>';
   sites.forEach((site, idx) => {
-    const e = entries[site];
+    const e    = entries[site];
     const flag = e?.saved ? ' ✓' : e?.reading ? ' …' : '';
-    const opt = document.createElement('option');
+    const opt  = document.createElement('option');
     opt.value = idx; opt.textContent = site + flag;
     sel.appendChild(opt);
   });
@@ -439,11 +763,11 @@ function renderList() {
   list.innerHTML = '';
   if (!filtered.length) { list.innerHTML = '<div class="empty-state">No sites match your search.</div>'; return; }
   filtered.forEach(site => {
-    const idx      = sites.indexOf(site);
-    const e        = entries[site];
-    const isDone   = e?.saved;
+    const idx       = sites.indexOf(site);
+    const e         = entries[site];
+    const isDone    = e?.saved;
     const isTouched = e?.reading && !e.saved;
-    const isVacant = showAll && !occSet.has(site);
+    const isVacant  = showAll && !occSet.has(site);
     const div = document.createElement('div');
     div.className = 'site-card' + (isDone ? ' done' : isTouched ? ' amber' : '');
     if (isVacant) div.style.opacity = '0.38';
@@ -460,7 +784,6 @@ function renderList() {
 function isLastUnfinished(idx) {
   return sites.filter((s, i) => i !== idx && !entries[s]?.saved).length === 0;
 }
-
 function updateEntryButtons() {
   const btnNext   = document.getElementById('btn-save-next');
   const btnChoose = document.getElementById('btn-save-choose');
@@ -485,6 +808,7 @@ function openEntry(idx) {
   document.getElementById('entry-counter').textContent   = 'Site ' + (idx + 1) + ' of ' + sites.length;
   document.getElementById('entry-status').textContent    = '';
   document.getElementById('entry-status').className      = 'status-msg';
+  document.getElementById('compressing-note').classList.remove('show');
   document.getElementById('input-reading').value = e.reading || '';
   document.getElementById('input-notes').value   = e.notes   || '';
   document.getElementById('input-photo').value   = '';
@@ -503,24 +827,25 @@ function openEntry(idx) {
     zone.classList.remove('photo-taken'); lbl.textContent = 'Tap To Take Photo Or Upload';
   }
   updateEntryButtons();
-  show('entry');
+  show('screen-entry');
 }
 
-function handlePhoto(input) {
+async function handlePhoto(input) {
   const file = input.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = evt => {
-    document.getElementById('photo-preview').src = evt.target.result;
+  const compNote = document.getElementById('compressing-note');
+  compNote.classList.add('show');
+  try {
+    const compressed = await compressPhoto(file);
+    document.getElementById('photo-preview').src = compressed;
     document.getElementById('photo-preview').style.display = 'block';
     document.getElementById('photo-zone').classList.add('photo-taken');
     document.getElementById('photo-zone-label').textContent = 'Photo Attached — Tap To Replace';
     const site = sites[currentIdx];
     if (!entries[site]) entries[site] = {};
-    entries[site].photoUrl  = evt.target.result;
-    entries[site].photoName = file.name || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '.jpg');
+    entries[site].photoUrl  = compressed;
+    entries[site].photoName = 'meter-' + site.replace(/\s+/g, '-').toLowerCase() + '-' + monthLabel.replace(/\s+/g, '-') + '.jpg';
     updateEntryButtons();
-  };
-  reader.readAsDataURL(file);
+  } finally { compNote.classList.remove('show'); }
 }
 
 function validateEntry() {
@@ -531,13 +856,11 @@ function validateEntry() {
   if (!entries[site]?.photoUrl) { statusEl.textContent = 'Please attach a photo of the meter (site number must be visible).'; statusEl.className = 'status-msg error'; return false; }
   return true;
 }
-
 function commitEntry() {
   const site = sites[currentIdx];
   entries[site] = { ...entries[site], reading: document.getElementById('input-reading').value.trim(), notes: document.getElementById('input-notes').value.trim(), saved: true, site };
   persistEntries();
 }
-
 function saveAndNext() {
   if (!validateEntry()) return;
   commitEntry(); showToast('Saved!');
@@ -545,19 +868,16 @@ function saveAndNext() {
   if (next !== -1) setTimeout(() => openEntry(next), 350);
   else setTimeout(() => { goToList(); showToast('All Sites Complete — Tap Review & Submit!', 3500); }, 350);
 }
-
 function saveAndSubmit() {
   if (!validateEntry()) return;
   commitEntry(); showToast('Last site saved!');
   setTimeout(() => goToReview(), 400);
 }
-
 function saveAndChoose() {
   if (!validateEntry()) return;
   commitEntry();
-  document.getElementById('choose-search').value = ''; buildChooseList(''); show('choose');
+  document.getElementById('choose-search').value = ''; buildChooseList(''); show('screen-choose');
 }
-
 function buildChooseList(query) {
   const list = document.getElementById('choose-list');
   const q = query.toLowerCase(); list.innerHTML = '';
@@ -576,19 +896,22 @@ function buildChooseList(query) {
   });
 }
 function filterChoose() { buildChooseList(document.getElementById('choose-search').value); }
-function goToList() { rebuildJumpMenu(); renderList(); show('list'); }
+function goToList() { rebuildJumpMenu(); renderList(); show('screen-list'); }
 
 function handleSubmitClick() {
   const remaining = sites.length - sites.filter(s => entries[s]?.saved).length;
   if (remaining > 0) { showToast('You Must Complete All ' + remaining + ' Remaining Site(s) Before Submitting', 3500); return; }
   goToReview();
 }
-
 function goToReview() {
   document.getElementById('review-subtitle').textContent  = sites.length + ' sites — ' + monthLabel;
   document.getElementById('submit-progress').classList.remove('show');
   document.getElementById('success-banner').classList.remove('show');
   document.getElementById('success-countdown').textContent = '';
+  document.getElementById('phase1-fill').style.width  = '0%';
+  document.getElementById('phase2-fill').style.width  = '0%';
+  document.getElementById('phase1-tick').textContent  = '';
+  document.getElementById('phase2-tick').textContent  = '';
   document.getElementById('btn-final-submit').disabled    = false;
   document.getElementById('btn-final-submit').textContent = 'Submit All Meter Reads';
   document.getElementById('btn-back-edit').style.display  = '';
@@ -605,12 +928,7 @@ function goToReview() {
       (e.notes ? '<div class="review-row"><span class="review-label">Notes</span><span class="review-val" style="font-size:12px;text-align:right;max-width:55%">' + e.notes + '</span></div>' : '');
     rl.appendChild(div);
   });
-  show('review');
-}
-
-function setProgress(current, total, label) {
-  document.getElementById('submit-progress-fill').style.width = (total ? Math.round(current / total * 100) : 0) + '%';
-  document.getElementById('submit-progress-label').textContent = label;
+  show('screen-review');
 }
 
 async function submitToMonday() {
@@ -619,61 +937,60 @@ async function submitToMonday() {
   const progEl   = document.getElementById('submit-progress');
   const succEl   = document.getElementById('success-banner');
   const countEl  = document.getElementById('success-countdown');
-
   btn.disabled = true; btn.textContent = 'Submitting...';
   progEl.classList.add('show');
+  document.getElementById('submit-progress-title').textContent = 'Submitting ' + sites.length + ' sites...';
   statusEl.textContent = ''; statusEl.className = 'status-msg';
-
   try {
-    setProgress(0, sites.length, 'Fetching board columns...');
     const cm = await getColumnMap();
-    let count = 0;
+    const itemIds = {};
+    let created = 0;
+    document.getElementById('submit-progress-label').textContent = 'Creating Monday items...';
     for (const site of sites) {
       const e = entries[site] || {};
-      count++;
-      setProgress(count - 0.5, sites.length, 'Creating item: ' + site + '...');
       const vals = {};
       if (cm.site    && e.site)    vals[cm.site]    = e.site;
       if (cm.reading && e.reading) vals[cm.reading] = e.reading;
       if (cm.month)                vals[cm.month]   = monthLabel;
       if (cm.notes   && e.notes)   vals[cm.notes]   = e.notes;
-      const itemRes = await mondayGQL(
+      const res = await mondayGQL(
         `mutation { create_item(board_id: ${BOARD_ID}, item_name: "Meter Read — ${monthLabel}", column_values: ${JSON.stringify(JSON.stringify(vals))}) { id } }`
       );
-      const itemId = itemRes?.data?.create_item?.id;
-      if (itemId && cm.photo && e.photoUrl) {
-        setProgress(count - 0.2, sites.length, 'Uploading photo: ' + site + '...');
-        const fname = e.photoName || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '-' + monthLabel.replace(/\s+/g, '-') + '.jpg');
-        await uploadPhotoViaWorker(itemId, cm.photo, e.photoUrl, fname);
-      }
-      setProgress(count, sites.length, count + ' of ' + sites.length + ' complete');
+      itemIds[site] = res?.data?.create_item?.id;
+      created++;
+      document.getElementById('phase1-fill').style.width = Math.round(created / sites.length * 100) + '%';
+      document.getElementById('submit-progress-label').textContent = 'Items: ' + created + ' of ' + sites.length;
     }
-
+    document.getElementById('phase1-tick').textContent = '✓';
+    document.getElementById('submit-progress-label').textContent = 'Uploading all photos simultaneously...';
+    const photoSites = sites.filter(s => itemIds[s] && cm.photo && entries[s]?.photoUrl);
+    let uploaded = 0;
+    await Promise.all(photoSites.map(async (site) => {
+      const e     = entries[site] || {};
+      const fname = e.photoName || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '.jpg');
+      try { await uploadPhotoViaWorker(itemIds[site], cm.photo, e.photoUrl, fname); }
+      catch(photoErr) { console.warn('Photo failed for ' + site + ':', photoErr.message); }
+      uploaded++;
+      document.getElementById('phase2-fill').style.width = Math.round(uploaded / photoSites.length * 100) + '%';
+      document.getElementById('submit-progress-label').textContent = 'Photos: ' + uploaded + ' of ' + photoSites.length;
+    }));
+    document.getElementById('phase2-tick').textContent = '✓';
     try { localStorage.removeItem(ENTRIES_KEY); } catch(e2) {}
-
     progEl.classList.remove('show');
     btn.textContent = 'All Meter Reads Submitted ✓';
     btn.disabled    = true;
     document.getElementById('btn-back-edit').style.display = 'none';
     document.getElementById('success-banner-sub').textContent =
-      count + ' meter reads submitted on ' + todayStr + ' for ' + monthLabel + '.';
+      sites.length + ' meter reads submitted on ' + todayStr + ' for ' + monthLabel + '.';
     succEl.classList.add('show');
     succEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    // Countdown then auto-reset to fresh session
     let countdown = 8;
-    countEl.textContent = 'Returning to main screen in ' + countdown + 's...';
+    countEl.textContent = 'Returning to dashboard in ' + countdown + 's...';
     resetTimer = setInterval(() => {
       countdown--;
-      if (countdown > 0) {
-        countEl.textContent = 'Returning to main screen in ' + countdown + 's...';
-      } else {
-        clearInterval(resetTimer);
-        resetTimer = null;
-        resetApp();
-      }
+      if (countdown > 0) { countEl.textContent = 'Returning to dashboard in ' + countdown + 's...'; }
+      else { clearInterval(resetTimer); resetTimer = null; resetApp(); }
     }, 1000);
-
   } catch(err) {
     progEl.classList.remove('show');
     btn.disabled = false; btn.textContent = 'Submit All Meter Reads';
@@ -684,12 +1001,10 @@ async function submitToMonday() {
 
 function resetApp() {
   if (resetTimer) { clearInterval(resetTimer); resetTimer = null; }
-  entries = {};
+  entries = {}; sitesLoaded = false;
   try { localStorage.removeItem(ENTRIES_KEY); } catch(e) {}
-  rebuildJumpMenu(); renderList(); show('list');
+  show('screen-dashboard');
 }
-
-loadSites();
 </script>
 </body>
 </html>
