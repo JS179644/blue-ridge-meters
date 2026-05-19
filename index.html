@@ -255,6 +255,49 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--gray-900); color: #fff; font-size: 13px; padding: 9px 18px; border-radius: 20px; opacity: 0; transition: opacity 0.25s, transform 0.25s; pointer-events: none; z-index: 100; max-width: 88vw; text-align: center; line-height: 1.4; }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .empty-state { text-align: center; padding: 2.5rem 1.5rem; color: var(--text-sec); font-size: 13px; }
+
+/* ── INSPECTION SCREENS (CHECK-IN + MOVE-OUT) ── */
+.insp-hero { padding: 1.75rem 1.25rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+.insp-hero.purple { background: linear-gradient(160deg, #2D1B6B 0%, #5B35C2 60%, #7B55E0 100%); }
+.insp-hero.teal   { background: linear-gradient(160deg, #043D42 0%, #0E7C86 60%, #159AA6 100%); }
+.insp-hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 130px; height: 130px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.insp-hero::after  { content: ''; position: absolute; bottom: -20px; left: -15px; width: 100px; height: 100px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.insp-hero-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; }
+.insp-hero-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.insp-hero-title { font-size: 17px; font-weight: 600; color: #fff; line-height: 1.2; }
+.insp-hero-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+.insp-body { padding: 1.1rem; }
+.insp-timing-card { border-radius: var(--r-lg); padding: 0.9rem 1rem; margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+.insp-timing-card.purple { background: var(--purple-light); border: 1px solid rgba(91,53,194,0.2); }
+.insp-timing-card.teal   { background: var(--teal-light);   border: 1px solid rgba(14,124,134,0.2); }
+.insp-timing-card svg { width: 17px; height: 17px; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.insp-timing-card.purple svg { stroke: var(--purple); }
+.insp-timing-card.teal   svg { stroke: var(--teal); }
+.insp-timing-text { font-size: 12.5px; line-height: 1.55; }
+.insp-timing-card.purple .insp-timing-text { color: #3D1F8A; }
+.insp-timing-card.teal   .insp-timing-text { color: #054F55; }
+.insp-timing-text strong { font-weight: 600; }
+.insp-cta-block { border-radius: var(--r-xl); padding: 1.25rem 1.1rem; cursor: pointer; transition: opacity 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.insp-cta-block.purple { background: linear-gradient(135deg, #5B35C2, #7B55E0); }
+.insp-cta-block.teal   { background: linear-gradient(135deg, #0E7C86, #159AA6); }
+.insp-cta-block:hover { opacity: 0.93; }
+.insp-cta-block:active { transform: scale(0.98); }
+.insp-cta-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.18); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.insp-cta-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.insp-cta-body { flex: 1; }
+.insp-cta-title { font-size: 14.5px; font-weight: 600; color: #fff; line-height: 1.2; }
+.insp-cta-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+.insp-cta-arrow svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.7); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.insp-checklist { background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 0.85rem 1rem; margin-bottom: 12px; }
+.insp-checklist-title { font-size: 12px; font-weight: 600; color: var(--text-ter); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+.insp-checklist-row { display: flex; align-items: flex-start; gap: 8px; padding: 3px 0; font-size: 12.5px; color: var(--text-sec); line-height: 1.4; }
+.insp-checklist-row svg { width: 14px; height: 14px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+.insp-checklist-row.purple svg { stroke: var(--purple); }
+.insp-checklist-row.teal   svg { stroke: var(--teal); }
+.insp-photo-note { background: var(--amber-light); border: 1px solid rgba(186,117,23,0.25); border-radius: var(--r-lg); padding: 0.85rem 1rem; margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+.insp-photo-note svg { width: 17px; height: 17px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.insp-photo-note-text { font-size: 12.5px; color: var(--amber-dark); line-height: 1.5; }
+.insp-photo-note-text strong { font-weight: 600; }
 </style>
 </head>
 <body>
@@ -283,7 +326,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
           <circle cx="28" cy="23.5" r="1.2" fill="white"/>
         </svg>
       </div>
-      <div class="grad-hero-title">Blue Ridge Texas<br>RV Park</div>
+      <div class="grad-hero-title">Blue Ridge RV Park</div>
       <div class="grad-hero-sub">Site Management</div>
       <div class="grad-hero-pill" id="dash-date"></div>
     </div>
@@ -303,27 +346,27 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
       </div>
 
-      <div class="feature-card" id="card-checkin" onclick="openForm('checkin')">
+      <div class="feature-card" id="card-checkin" onclick="show('screen-checkin')">
         <div class="card-icon purple">
           <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <div class="card-body">
           <div class="card-title">Site Check-In</div>
-          <div class="card-desc">Pre move-in site inspection form</div>
+          <div class="card-desc">Pre-Arrival Inspection</div>
         </div>
-        <span class="card-badge badge-soon" id="badge-checkin">Coming Soon</span>
+        <span class="card-badge badge-active" id="badge-checkin">Active</span>
         <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
       </div>
 
-      <div class="feature-card" id="card-moveout" onclick="openForm('moveout')">
+      <div class="feature-card" id="card-moveout" onclick="show('screen-moveout')">
         <div class="card-icon teal">
           <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         </div>
         <div class="card-body">
           <div class="card-title">Site Post Move-Out</div>
-          <div class="card-desc">Post move-out site inspection form</div>
+          <div class="card-desc">Post move-out inspection for vacated sites</div>
         </div>
-        <span class="card-badge badge-soon" id="badge-moveout">Coming Soon</span>
+        <span class="card-badge badge-active" id="badge-moveout">Active</span>
         <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
       </div>
 
@@ -342,7 +385,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 
     <div class="dash-divider"></div>
     <div class="dash-footer">
-      <div class="dash-footer-note">Blue Ridge Texas RV Park</div>
+      <div class="dash-footer-note">Blue Ridge RV Park</div>
     </div>
   </div>
 
@@ -368,57 +411,215 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 
     <div class="qrg-body">
 
-      <!-- STEP 1 — TRACKING FORM -->
-      <div class="step-block">
-        <div class="step-block-header orange-bg step1-cta" onclick="window.open('https://forms.monday.com/forms/fdc1ce88a0e3998f19a9f5b89aade906?r=use1','_blank')">
-          <div class="step-num-badge"><span>1</span></div>
-          <div class="step-block-title white">Open Cash/Check Tracking Form</div>
-          <span class="step-block-arrow white"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
-        </div>
-        <div class="step1-sub">
-          <p>Submit this form after <strong style="color:#fff">every</strong> cash or check payment collected on site. Includes a Newbook receipt number field for reference.</p>
-        </div>
-      </div>
-
-      <!-- STEP 2 — DEPOSIT SLIP -->
-      <div class="step-block">
-        <div class="step-block-header gray-bg">
-          <div class="step-num-badge dark"><span>2</span></div>
-          <div class="step-block-title dark">Deposit Slip — Final Step</div>
-        </div>
-        <div class="step2-body">
-          <div class="step2-note">After depositing at the bank, email the itemized deposit slip to:</div>
-          <div class="deposit-email">info@wearelcp.com</div>
-          <div class="step2-note">Include the amount toward each <strong>booking</strong>, <strong>site</strong>, and <strong>guest name</strong>. The team will register the payment on the backend.</div>
-        </div>
-      </div>
-
-      <!-- CONVENIENCE FEE NOTE -->
+      <!-- CONVENIENCE FEE NOTE — above step 1 -->
       <div class="fee-note">
         <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         <div class="fee-note-text"><strong>Note:</strong> A <strong>$5 convenience fee</strong> applies to all cash and physical check payments.</div>
       </div>
 
-      <!-- VIEW FULL PROCESS GUIDE PDF -->
-      <a class="pdf-btn" href="https://js179644.github.io/blue-ridge-meters/cash-check-qrg.pdf" target="_blank">
-        <div class="pdf-btn-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13h6M9 17h4"/></svg>
+      <!-- STEP 1 — TRACKING FORM — fully tappable, no wasted space below -->
+      <div class="step-block" style="cursor:pointer;" onclick="window.open('https://forms.monday.com/forms/fdc1ce88a0e3998f19a9f5b89aade906?r=use1','_blank')">
+        <div class="step-block-header orange-bg step1-cta" style="border-radius:var(--r-xl);">
+          <div class="step-num-badge"><span>1</span></div>
+          <div style="flex:1">
+            <div class="step-block-title white">Submit Cash/Check Tracking Form</div>
+            <div style="font-size:11.5px;color:rgba(255,255,255,0.75);margin-top:2px;">Tap to open — submit once per payment collected</div>
+          </div>
+          <span class="step-block-arrow white"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
         </div>
-        <div class="pdf-btn-body">
-          <div class="pdf-btn-title">View Full Process Guide (PDF)</div>
-          <div class="pdf-btn-sub">Full Newbook QRG — opens in browser</div>
-        </div>
-        <span class="pdf-btn-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
-      </a>
+      </div>
 
-      <!-- NO NEWBOOK ACCESS — bottom -->
+      <!-- STEP 2 — DEPOSIT SLIP -->
+      <div class="step-block">
+        <div class="step-block-header orange-bg" style="border-radius:var(--r-xl) var(--r-xl) 0 0;">
+          <div class="step-num-badge"><span>2</span></div>
+          <div class="step-block-title white">Deposit Slip — Final Step</div>
+        </div>
+        <div class="step2-body">
+          <div class="step2-note">After depositing at the bank, email the itemized deposit slip to:</div>
+          <div class="deposit-email">info@wearelcp.com</div>
+          <div class="step2-note" style="margin-top:8px;">
+            The deposit slip should include the itemized breakdown showing the amount applied toward each:<br><br>
+            <strong>• Booking number</strong><br>
+            <strong>• Site number</strong><br>
+            <strong>• Guest name</strong><br><br>
+            The team will register the payment in Newbook.
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWBOOK ACCESS NOTE — with embedded PDF link -->
       <div class="nonewbook-note">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <div class="nonewbook-note-body"><strong>No Newbook access?</strong> Log the payment details via the tracking form above, then email the itemized deposit slip to info@wearelcp.com once deposited at the bank. The team will register the payment on the backend.</div>
+        <div class="nonewbook-note-body">
+          <strong>Have Newbook access?</strong> If you have the ability to log the payment directly in Newbook, view the full step-by-step process guide below.<br><br>
+          <a href="https://js179644.github.io/blue-ridge-meters/cash-check-qrg.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:rgba(24,95,165,0.12);border:1px solid rgba(24,95,165,0.25);border-radius:8px;padding:7px 12px;text-decoration:none;color:#1a5a9a;font-size:12.5px;font-weight:600;">
+            <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:#185FA5;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13h6M9 17h4"/></svg>
+            View Full Process Guide (PDF)
+          </a>
+        </div>
       </div>
 
       <button class="btn-secondary" style="margin-bottom:2rem;" onclick="show('screen-dashboard')">← Back To Dashboard</button>
 
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SITE CHECK-IN                                  -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div id="screen-checkin" class="screen">
+    <div class="topbar">
+      <button class="back-btn" onclick="show('screen-dashboard')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <div style="flex:1">
+        <div class="topbar-title">Site Check-In</div>
+        <div class="topbar-sub">Pre-Arrival Inspection Form</div>
+      </div>
+    </div>
+
+    <div class="insp-hero purple">
+      <div class="insp-hero-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div class="insp-hero-title">Pre-Arrival Site<br>Inspection Checklist</div>
+      <div class="insp-hero-sub">Goal: Site is clean, functional, and ready for guest arrival</div>
+    </div>
+
+    <div class="insp-body">
+
+      <!-- TIMING NOTICE -->
+      <div class="insp-timing-card purple">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="insp-timing-text">
+          <strong>When to complete this form:</strong> Complete the Pre-Arrival Inspection <strong>1 day prior to guest arrival</strong>.
+        </div>
+      </div>
+
+      <!-- PRIMARY CTA -->
+      <div class="insp-cta-block purple" onclick="window.open('https://forms.monday.com/forms/feb68c086da9839a8ed243ca926d0320?r=use1','_blank')">
+        <div class="insp-cta-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="insp-cta-body">
+          <div class="insp-cta-title">Open Pre-Arrival Inspection Form</div>
+          <div class="insp-cta-sub">Tap to open form — submit once per arrival</div>
+        </div>
+        <span class="insp-cta-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+
+      <!-- WHAT THE FORM COVERS -->
+      <div class="insp-checklist">
+        <div class="insp-checklist-title">What the form covers</div>
+        <div class="insp-checklist-row purple">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Site Inspection — cleanliness, pad condition, no leftover items
+        </div>
+        <div class="insp-checklist-row purple">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Utilities Check — power pedestal, breakers, water, sewer
+        </div>
+        <div class="insp-checklist-row purple">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Yard / Fenced Sites — grass, fence panels, gate operation
+        </div>
+        <div class="insp-checklist-row purple">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Meter Read Number &amp; Date
+        </div>
+        <div class="insp-checklist-row purple">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Inspector Name &amp; Overall Site Status
+        </div>
+      </div>
+
+      <!-- PHOTO REQUIREMENTS -->
+      <div class="insp-photo-note">
+        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <div class="insp-photo-note-text">
+          <strong>Required photos:</strong> Wide shot of entire site, meter reading, utility pedestal close-up, general site angle, and fence (where applicable).
+        </div>
+      </div>
+
+      <button class="btn-secondary" style="margin-bottom:2rem;" onclick="show('screen-dashboard')">← Back To Dashboard</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SITE POST MOVE-OUT                             -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div id="screen-moveout" class="screen">
+    <div class="topbar">
+      <button class="back-btn" onclick="show('screen-dashboard')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <div style="flex:1">
+        <div class="topbar-title">Site Post Move-Out</div>
+        <div class="topbar-sub">Post Move-Out Inspection Form</div>
+      </div>
+    </div>
+
+    <div class="insp-hero teal">
+      <div class="insp-hero-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </div>
+      <div class="insp-hero-title">Post Move-Out<br>Site Inspection</div>
+      <div class="insp-hero-sub">Document site condition after every guest departure</div>
+    </div>
+
+    <div class="insp-body">
+
+      <!-- TIMING NOTICE -->
+      <div class="insp-timing-card teal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="insp-timing-text">
+          <strong>When to complete this form:</strong> Complete the post move-out inspection <strong>within 24 hours of guest departure</strong> to document the site condition and record the final meter reading.
+        </div>
+      </div>
+
+      <!-- PRIMARY CTA -->
+      <div class="insp-cta-block teal" onclick="window.open('https://forms.monday.com/forms/6338d129a20b4762aec5425cfc7998bc?r=use1','_blank')">
+        <div class="insp-cta-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </div>
+        <div class="insp-cta-body">
+          <div class="insp-cta-title">Open Post Move-Out Inspection Form</div>
+          <div class="insp-cta-sub">Tap to open form — submit once per guest departure</div>
+        </div>
+        <span class="insp-cta-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </div>
+
+      <!-- WHAT TO DOCUMENT -->
+      <div class="insp-checklist">
+        <div class="insp-checklist-title">What to document</div>
+        <div class="insp-checklist-row teal">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Overall site condition and cleanliness on departure
+        </div>
+        <div class="insp-checklist-row teal">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Any damage, missing items, or issues requiring repair
+        </div>
+        <div class="insp-checklist-row teal">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Final meter read number and date
+        </div>
+        <div class="insp-checklist-row teal">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Utility connections — water, sewer, power status
+        </div>
+        <div class="insp-checklist-row teal">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Site ready status for next guest arrival
+        </div>
+      </div>
+
+      <!-- PHOTO REQUIREMENTS -->
+      <div class="insp-photo-note">
+        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <div class="insp-photo-note-text">
+          <strong>Required photos:</strong> Wide shot of entire site post-departure, meter reading, utility connections, and any damage or areas needing attention.
+        </div>
+      </div>
+
+      <button class="btn-secondary" style="margin-bottom:2rem;" onclick="show('screen-dashboard')">← Back To Dashboard</button>
     </div>
   </div>
 
@@ -438,7 +639,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="grad-hero-title">Monthly Meter Reads</div>
-      <div class="grad-hero-sub">Blue Ridge Texas RV Park</div>
+      <div class="grad-hero-sub">Blue Ridge RV Park</div>
       <div class="grad-hero-pill" id="topbar-month"></div>
     </div>
     <div class="welcome">
@@ -585,10 +786,11 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 const WORKER_URL   = 'https://blue-ridge-proxy.josh-060.workers.dev';
 const SHEET_ID     = '1oQrQ3uJUepiyekoCC60j3_LxIoDtDhlsZMaLaLGohGg';
 const ENTRIES_KEY  = 'br_meter_entries';
-const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC45MDdaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.P1Nn9KU03qSVj9rzQBu_CrA0izkUYm4-m4UMKu41lPE';
+const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.JsRt0oyosuGsIXnBm4hU-E4PB-6C0fzYT2RAffDlhnA';
 const BOARD_ID     = '18413790885';
-const FORM_CHECKIN = '';
-const FORM_MOVEOUT = '';
+// Pre-Arrival Site Inspection Board ID: 18413833610
+const FORM_CHECKIN = 'https://forms.monday.com/forms/feb68c086da9839a8ed243ca926d0320?r=use1';
+const FORM_MOVEOUT = 'https://forms.monday.com/forms/6338d129a20b4762aec5425cfc7998bc?r=use1';
 const MAX_PHOTO_PX  = 1400;
 const PHOTO_QUALITY = 0.72;
 
@@ -624,16 +826,6 @@ async function startMeterReads() {
   if (!sitesLoaded) { show('screen-loading'); await loadSites(); }
   else { rebuildJumpMenu(); renderList(); show('screen-list'); }
 }
-function openForm(type) {
-  const url = type === 'checkin' ? FORM_CHECKIN : FORM_MOVEOUT;
-  if (!url) { showToast('This form is coming soon — check back next update!', 3000); return; }
-  window.open(url, '_blank');
-}
-function refreshDashBadges() {
-  if (FORM_CHECKIN) { document.getElementById('badge-checkin').textContent = 'Open Form'; document.getElementById('badge-checkin').className = 'card-badge badge-active'; }
-  if (FORM_MOVEOUT) { document.getElementById('badge-moveout').textContent = 'Open Form'; document.getElementById('badge-moveout').className = 'card-badge badge-active'; }
-}
-refreshDashBadges();
 
 async function mondayGQL(query) {
   const r = await fetch('https://api.monday.com/v2', {
