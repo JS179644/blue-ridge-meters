@@ -24,25 +24,17 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #fff; }
 .screen { display: none; }
 .screen.active { display: block; }
-
-/* HERO */
 .hero { background: var(--blue); padding: 1.5rem 1.1rem 1.25rem; text-align: center; }
 .hero-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.6rem; }
 .hero-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .hero-title { font-size: 18px; font-weight: 600; color: #fff; letter-spacing: -0.01em; line-height: 1.25; }
 .hero-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; }
-
-/* TOPBAR */
 .topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0.85rem 1.1rem; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 20; }
-.topbar-icon { width: 34px; height: 34px; background: var(--blue-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.topbar-icon svg { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .topbar-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
 .topbar-sub { font-size: 11px; color: var(--text-sec); margin-top: 1px; }
 .back-btn { background: none; border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-sec); flex-shrink: 0; }
 .back-btn:hover { background: var(--gray-100); }
 .back-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-
-/* WELCOME */
 .welcome { background: var(--blue-light); border-bottom: 1px solid rgba(24,95,165,0.12); padding: 1rem 1.1rem; }
 .welcome-title { font-size: 13.5px; font-weight: 600; color: var(--blue); margin-bottom: 6px; }
 .welcome-steps { list-style: none; }
@@ -50,13 +42,9 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .welcome-steps li .num { background: var(--blue); color: #fff; font-size: 10px; font-weight: 600; width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
 .photo-tip { margin-top: 8px; background: rgba(24,95,165,0.08); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; padding: 7px 10px; font-size: 12px; color: #1a5a9a; line-height: 1.5; }
 .photo-tip strong { font-weight: 600; }
-
-/* OCC BADGE */
 .occ-row { padding: 0.6rem 1.1rem 0; display: flex; align-items: center; }
 .occ-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--green-light); color: var(--green-dark); font-size: 11.5px; font-weight: 500; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(29,158,117,0.2); }
 .occ-badge svg { width: 13px; height: 13px; stroke: var(--green); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
-/* TOOLBAR */
 .toolbar { padding: 0.65rem 1.1rem; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid var(--border); }
 .search-wrap { flex: 1; position: relative; }
 .search-wrap > svg { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; stroke: var(--text-ter); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
@@ -70,21 +58,15 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .toggle-slider::before { content: ''; position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s; }
 .toggle input:checked + .toggle-slider { background: var(--blue); }
 .toggle input:checked + .toggle-slider::before { transform: translateX(16px); }
-
-/* PROGRESS */
 .progress-wrap { padding: 0.7rem 1.1rem 0.5rem; }
 .progress-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
 .progress-count { font-size: 12px; color: var(--text-sec); }
 .progress-month { font-size: 12px; font-weight: 500; color: var(--green-dark); }
 .progress-track { height: 5px; background: var(--gray-100); border-radius: 99px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width 0.4s ease; }
-
-/* JUMP */
 .jump-wrap { padding: 0 1.1rem 0.65rem; }
 .jump-select { width: 100%; padding: 8px 10px; border: 1px solid var(--border-mid); border-radius: var(--r-md); font-size: 13px; font-family: var(--font); color: var(--text); background: var(--gray-50); outline: none; cursor: pointer; }
 .jump-select:focus { border-color: var(--blue-mid); }
-
-/* SITE LIST */
 .site-list { padding: 0 1.1rem 0.5rem; }
 .site-card { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 0.75rem 0.9rem; margin-bottom: 7px; cursor: pointer; transition: border-color 0.15s, background 0.15s; -webkit-tap-highlight-color: transparent; }
 .site-card:hover { border-color: var(--border-mid); }
@@ -105,26 +87,25 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--text);
 .badge-amber { background: #F5C242; color: #6B3F00; }
 .badge-done { background: var(--green); color: #fff; }
 .chevron svg { width: 14px; height: 14px; stroke: var(--text-ter); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-
-/* STICKY SUBMIT */
 .sticky-submit { position: sticky; bottom: 0; background: #fff; border-top: 1px solid var(--border); padding: 0.75rem 1.1rem; z-index: 15; }
 .save-indicator { font-size: 11px; color: var(--green-dark); text-align: center; padding: 4px 0 0; display: none; text-transform: uppercase; letter-spacing: 0.03em; }
 .save-indicator.show { display: block; }
-
-/* BUTTONS */
 .btn-primary { width: 100%; padding: 13px; background: var(--blue); color: #fff; border: none; border-radius: var(--r-lg); font-size: 13px; font-weight: 600; font-family: var(--font); cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; }
 .btn-primary:active { transform: scale(0.98); }
 .btn-primary:disabled { background: var(--gray-200); color: var(--text-ter); cursor: default; transform: none; }
+.btn-primary.green { background: var(--green); }
+.btn-primary.green:hover { background: var(--green-dark); }
 .btn-secondary { width: 100%; padding: 12px; background: transparent; color: var(--text-sec); border: 1px solid var(--border-mid); border-radius: var(--r-lg); font-size: 12.5px; font-weight: 600; font-family: var(--font); cursor: pointer; margin-top: 9px; text-transform: uppercase; letter-spacing: 0.05em; }
 .btn-secondary:hover { background: var(--gray-50); }
-.btn-draft { width: 100%; padding: 11px; background: var(--amber-light); color: var(--amber-dark); border: 1px solid rgba(186,117,23,0.25); border-radius: var(--r-lg); font-size: 12.5px; font-weight: 600; font-family: var(--font); cursor: pointer; margin-top: 9px; text-transform: uppercase; letter-spacing: 0.05em; }
 .next-nav { display: flex; gap: 8px; margin-top: 1.1rem; }
 .next-nav button { flex: 1; padding: 12px 6px; border-radius: var(--r-lg); font-size: 11px; font-weight: 600; font-family: var(--font); cursor: pointer; border: 1px solid var(--border-mid); background: #fff; color: var(--text-sec); text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; transition: background 0.15s; }
 .next-nav button:hover { background: var(--gray-50); }
 .next-nav button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
 .next-nav button.primary:hover { background: var(--blue-mid); }
-
-/* ENTRY */
+.next-nav button.primary.green { background: var(--green); border-color: var(--green); }
+.next-nav button.primary.green:hover { background: var(--green-dark); }
+.autosave-note { font-size: 11px; color: var(--green-dark); text-align: center; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.autosave-note svg { width: 12px; height: 12px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .entry-body { padding: 1.1rem; }
 .field-group { margin-bottom: 1.1rem; }
 .field-label { font-size: 12.5px; font-weight: 500; color: var(--text-sec); margin-bottom: 5px; }
@@ -146,8 +127,6 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .status-msg { font-size: 12.5px; text-align: center; margin-top: 8px; min-height: 16px; }
 .status-msg.error { color: var(--red); }
 .status-msg.success { color: var(--green-dark); }
-
-/* REVIEW */
 .review-body { padding: 1.1rem; }
 .review-card { background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 0.85rem 1rem; margin-bottom: 7px; }
 .review-site { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
@@ -155,32 +134,20 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 .review-label { color: var(--text-ter); }
 .review-val { font-weight: 500; color: var(--text); }
 .review-ok { color: var(--green-dark); font-weight: 500; }
-
-/* SUBMIT PROGRESS */
 .submit-progress { background: var(--blue-light); border: 1px solid rgba(24,95,165,0.15); border-radius: var(--r-lg); padding: 1rem; margin-bottom: 1rem; display: none; }
 .submit-progress.show { display: block; }
 .submit-progress-title { font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 8px; }
 .submit-progress-track { height: 6px; background: rgba(24,95,165,0.15); border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
 .submit-progress-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.3s; }
 .submit-progress-label { font-size: 12px; color: var(--blue); }
-
-/* SUCCESS */
 .success-banner { background: var(--green-light); border: 1px solid rgba(29,158,117,0.25); border-radius: var(--r-lg); padding: 1rem 1.1rem; margin-bottom: 1rem; display: none; }
 .success-banner.show { display: block; }
 .success-banner-title { font-size: 14px; font-weight: 600; color: var(--green-dark); margin-bottom: 3px; }
 .success-banner-sub { font-size: 12.5px; color: var(--green-dark); opacity: 0.85; line-height: 1.5; }
-
-/* LOADING / DONE */
+.success-countdown { font-size: 11.5px; color: var(--green-dark); margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.8; }
 .loading-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; gap: 14px; color: var(--text-sec); font-size: 13.5px; }
 .spinner { width: 30px; height: 30px; border: 2.5px solid var(--gray-200); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.75s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.done-screen { text-align: center; padding: 3rem 1.5rem; }
-.done-icon { width: 68px; height: 68px; border-radius: 50%; background: var(--green-light); margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; }
-.done-icon svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.done-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
-.done-sub { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
-
-/* TOAST */
 .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--gray-900); color: #fff; font-size: 13px; padding: 9px 18px; border-radius: 20px; opacity: 0; transition: opacity 0.25s, transform 0.25s; pointer-events: none; z-index: 100; max-width: 88vw; text-align: center; line-height: 1.4; }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .empty-state { text-align: center; padding: 2.5rem 1.5rem; color: var(--text-sec); font-size: 13px; }
@@ -192,44 +159,34 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 
   <!-- LOADING -->
   <div id="screen-loading" class="screen active">
-    <div class="loading-screen">
-      <div class="spinner"></div>
-      <p>Loading occupied sites...</p>
-    </div>
+    <div class="loading-screen"><div class="spinner"></div><p>Loading occupied sites...</p></div>
   </div>
 
   <!-- SITE LIST -->
   <div id="screen-list" class="screen">
     <div class="hero">
-      <div class="hero-icon">
-        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      </div>
+      <div class="hero-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
       <div class="hero-title">Blue Ridge Texas<br>Monthly Meter Reads</div>
       <div class="hero-sub" id="topbar-month"></div>
     </div>
-
     <div class="welcome">
       <div class="welcome-title">How To Use This App</div>
       <ul class="welcome-steps">
         <li><span class="num">1</span> Tap any site below to open the meter read form</li>
         <li><span class="num">2</span> Enter the kWh number shown on the meter display</li>
-        <li><span class="num">3</span> Take a photo of the meter — <strong>make sure the site number sign and meter face are both visible in one shot</strong></li>
-        <li><span class="num">4</span> Tap <strong>Save &amp; Next Site</strong> — or choose which site to go to next</li>
-        <li><span class="num">5</span> When all sites turn green, tap <strong>Review &amp; Submit</strong></li>
-        <li><span class="num">6</span> Progress saves automatically — safe to close and return anytime</li>
+        <li><span class="num">3</span> Take a photo — <strong>include the site number sign and meter face in one shot</strong></li>
+        <li><span class="num">4</span> Tap <strong>Save &amp; Next Site</strong> — progress saves automatically every time</li>
+        <li><span class="num">5</span> On the last site the button changes to <strong>Submit All Sites</strong></li>
+        <li><span class="num">6</span> Safe to close the app anytime — your progress is always saved</li>
       </ul>
-      <div class="photo-tip">
-        <strong>Photo tip:</strong> Stand back slightly so both the <strong>site number sign</strong> and the <strong>meter face</strong> are clearly visible in a single shot. This is required for verification.
-      </div>
+      <div class="photo-tip"><strong>Photo tip:</strong> Stand back so both the <strong>site number sign</strong> and <strong>meter face</strong> are clearly visible in one shot. Required for verification.</div>
     </div>
-
     <div class="occ-row">
       <span class="occ-badge" id="occ-badge">
         <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Showing Occupied Sites Only
       </span>
     </div>
-
     <div class="toolbar">
       <div class="search-wrap">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -237,13 +194,9 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
       </div>
       <div class="toggle-wrap">
         <span class="toggle-label">All Sites</span>
-        <label class="toggle" title="Toggle between occupied only and all 64 sites">
-          <input type="checkbox" id="toggle-all" onchange="toggleAllSites()" />
-          <span class="toggle-slider"></span>
-        </label>
+        <label class="toggle"><input type="checkbox" id="toggle-all" onchange="toggleAllSites()" /><span class="toggle-slider"></span></label>
       </div>
     </div>
-
     <div class="progress-wrap">
       <div class="progress-row">
         <span class="progress-count" id="progress-label">0 of 0 complete</span>
@@ -251,15 +204,12 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
       </div>
       <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     </div>
-
     <div class="jump-wrap">
       <select class="jump-select" id="jump-select" onchange="jumpToSite()">
         <option value="">— Jump To A Specific Site —</option>
       </select>
     </div>
-
     <div class="site-list" id="site-list"></div>
-
     <div class="sticky-submit">
       <button class="btn-primary" onclick="handleSubmitClick()">Review &amp; Submit All Reads</button>
       <div class="save-indicator" id="save-indicator">Progress Saved To This Device</div>
@@ -269,9 +219,7 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
   <!-- ENTRY FORM -->
   <div id="screen-entry" class="screen">
     <div class="topbar">
-      <button class="back-btn" onclick="goToList()" aria-label="Back to site list">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      </button>
+      <button class="back-btn" onclick="goToList()"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
       <div style="flex:1">
         <div class="topbar-title" id="entry-site-name">Site 1</div>
         <div class="topbar-sub" id="entry-counter"></div>
@@ -298,11 +246,14 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
         <textarea class="field-input" id="input-notes" rows="2" placeholder="Any issues, damage, or unusual readings..."></textarea>
       </div>
       <div class="status-msg" id="entry-status"></div>
-      <div class="next-nav">
-        <button class="primary" onclick="saveAndNext()">Save &amp; Next Site</button>
-        <button onclick="saveAndChoose()">Save &amp; Select Next Site</button>
+      <div class="next-nav" id="next-nav">
+        <button class="primary" id="btn-save-next" onclick="saveAndNext()">Save &amp; Next Site</button>
+        <button id="btn-save-choose" onclick="saveAndChoose()">Save &amp; Select Next Site</button>
       </div>
-      <button class="btn-draft" onclick="saveDraft()">Save Progress &amp; Return Later</button>
+      <div class="autosave-note">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Progress saves automatically on every save
+      </div>
       <button class="btn-secondary" onclick="goToList()">Back To Site List</button>
     </div>
   </div>
@@ -310,13 +261,8 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
   <!-- CHOOSE NEXT -->
   <div id="screen-choose" class="screen">
     <div class="topbar">
-      <button class="back-btn" onclick="show('entry')" aria-label="Back">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      </button>
-      <div style="flex:1">
-        <div class="topbar-title">Select Next Site</div>
-        <div class="topbar-sub">Tap the site you're heading to next</div>
-      </div>
+      <button class="back-btn" onclick="show('entry')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <div style="flex:1"><div class="topbar-title">Select Next Site</div><div class="topbar-sub">Tap the site you're heading to next</div></div>
     </div>
     <div style="padding:0.75rem 1.1rem;">
       <div style="position:relative;margin-bottom:10px;">
@@ -330,23 +276,19 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
   <!-- REVIEW -->
   <div id="screen-review" class="screen">
     <div class="topbar">
-      <button class="back-btn" onclick="goToList()" aria-label="Back">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      </button>
-      <div style="flex:1">
-        <div class="topbar-title">Review Reads</div>
-        <div class="topbar-sub" id="review-subtitle"></div>
-      </div>
+      <button class="back-btn" onclick="goToList()"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <div style="flex:1"><div class="topbar-title">Review Reads</div><div class="topbar-sub" id="review-subtitle"></div></div>
     </div>
     <div class="review-body">
       <div class="submit-progress" id="submit-progress">
-        <div class="submit-progress-title" id="submit-progress-title">Submitting reads...</div>
+        <div class="submit-progress-title">Submitting reads &amp; uploading photos...</div>
         <div class="submit-progress-track"><div class="submit-progress-fill" id="submit-progress-fill" style="width:0%"></div></div>
         <div class="submit-progress-label" id="submit-progress-label">Starting...</div>
       </div>
       <div class="success-banner" id="success-banner">
         <div class="success-banner-title">All Meter Reads Submitted</div>
         <div class="success-banner-sub" id="success-banner-sub"></div>
+        <div class="success-countdown" id="success-countdown"></div>
       </div>
       <div id="review-list"></div>
       <button class="btn-primary" id="btn-final-submit" onclick="submitToMonday()">Submit All Meter Reads</button>
@@ -354,43 +296,25 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
       <div class="status-msg" id="review-status"></div>
     </div>
   </div>
-
-  <!-- DONE -->
-  <div id="screen-done" class="screen">
-    <div class="done-screen">
-      <div class="done-icon">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <div class="done-title">All Meter Reads Submitted</div>
-      <div class="done-sub" id="done-msg"></div>
-      <button class="btn-secondary" style="max-width:220px;margin:2rem auto 0;" onclick="resetApp()">Start New Month</button>
-    </div>
-  </div>
 </div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────────────────────
-// Monday token lives securely in the Cloudflare Worker — not here
 const WORKER_URL   = 'https://blue-ridge-proxy.josh-060.workers.dev';
 const SHEET_ID     = '1oQrQ3uJUepiyekoCC60j3_LxIoDtDhlsZMaLaLGohGg';
-const BOARD_ID_KEY = 'br_meter_board_id';
 const ENTRIES_KEY  = 'br_meter_entries';
-// Monday token is stored as a secret in Cloudflare — update it there, never here
-const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC45MDdaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.P1Nn9KU03qSVj9rzQBu_CrA0izkUYm4-m4UMKu41lPE'; // used only for GQL calls (not file upload)
+const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC45MDdaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.P1Nn9KU03qSVj9rzQBu_CrA0izkUYm4-m4UMKu41lPE';
+const BOARD_ID     = '18413790885';
 
-// ── DATE ──────────────────────────────────────────────────────────────────
 const MONTHS     = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const now        = new Date();
 const monthLabel = MONTHS[now.getMonth()] + ' ' + now.getFullYear();
 const todayStr   = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
-// ── STATE ─────────────────────────────────────────────────────────────────
 let allSites = [], occupiedSites = [], sites = [];
 let entries = {}, currentIdx = 0, showAll = false;
-let boardId = localStorage.getItem(BOARD_ID_KEY) || null;
+let resetTimer = null;
 try { entries = JSON.parse(localStorage.getItem(ENTRIES_KEY) || '{}'); } catch(e) { entries = {}; }
 
-// ── HELPERS ───────────────────────────────────────────────────────────────
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
@@ -406,18 +330,13 @@ function persistEntries() {
   for (const k in entries) save[k] = { reading: entries[k].reading, notes: entries[k].notes, saved: entries[k].saved, site: entries[k].site };
   try { localStorage.setItem(ENTRIES_KEY, JSON.stringify(save)); } catch(e) {}
   const si = document.getElementById('save-indicator');
-  if (si) { si.classList.add('show'); setTimeout(() => si.classList.remove('show'), 3000); }
+  if (si) { si.classList.add('show'); setTimeout(() => si.classList.remove('show'), 2500); }
 }
 
-// ── MONDAY GQL (standard JSON — no file) ─────────────────────────────────
 async function mondayGQL(query) {
   const r = await fetch('https://api.monday.com/v2', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': MONDAY_TOKEN,
-      'API-Version': '2024-01'
-    },
+    headers: { 'Content-Type': 'application/json', 'Authorization': MONDAY_TOKEN, 'API-Version': '2024-01' },
     body: JSON.stringify({ query })
   });
   const data = await r.json();
@@ -425,77 +344,39 @@ async function mondayGQL(query) {
   return data;
 }
 
-// ── PHOTO UPLOAD via Cloudflare Worker proxy ──────────────────────────────
-// The Worker forwards the multipart request to Monday's /v2/file endpoint
-// server-side, bypassing the browser CORS restriction entirely.
 async function uploadPhotoViaWorker(itemId, columnId, dataUrl, filename) {
-  // Convert base64 dataURL → Blob
   const arr  = dataUrl.split(',');
   const mime = arr[0].match(/:(.*?);/)[1];
   const bstr = atob(arr[1]);
   const u8   = new Uint8Array(bstr.length);
   for (let i = 0; i < bstr.length; i++) u8[i] = bstr.charCodeAt(i);
   const blob = new Blob([u8], { type: mime });
-
-  // Build the GraphQL mutation Monday expects
-  const gqlQuery = `mutation add_file($file: File!) {
-    add_file_to_column(item_id: ${itemId}, column_id: "${columnId}", file: $file) { id }
-  }`;
-
-  // Build multipart form — Worker passes this straight to Monday
+  const gqlQuery = `mutation add_file($file: File!) { add_file_to_column(item_id: ${itemId}, column_id: "${columnId}", file: $file) { id } }`;
   const form = new FormData();
   form.append('query', gqlQuery);
   form.append('variables[file]', blob, filename);
-
-  const r = await fetch(WORKER_URL, {
-    method: 'POST',
-    body: form
-    // Do NOT set Content-Type — browser sets the correct multipart boundary automatically
-  });
-
-  if (!r.ok) {
-    const text = await r.text();
-    throw new Error('Photo upload failed: ' + text);
-  }
-
+  const r = await fetch(WORKER_URL, { method: 'POST', body: form });
+  if (!r.ok) throw new Error('Photo upload failed: ' + await r.text());
   const result = await r.json();
-  if (result.errors) {
-    throw new Error('Monday photo error: ' + result.errors[0]?.message);
-  }
+  if (result.errors) throw new Error('Monday photo error: ' + result.errors[0]?.message);
   return result;
 }
 
-// ── BOARD SETUP ───────────────────────────────────────────────────────────
-async function ensureBoard() {
-  if (boardId) return boardId;
-
-  const wsRes  = await mondayGQL(`{ workspaces { id name } }`);
-  const wsList = wsRes?.data?.workspaces || [];
-  let wsId = null;
-  for (const w of wsList) { if (w.name.toLowerCase().includes('lighthouse')) { wsId = w.id; break; } }
-  if (!wsId && wsList.length) wsId = wsList[0].id;
-
-  const cr = await mondayGQL(`mutation {
-    create_board(board_name: "Blue Ridge TX - Monthly Meter Reads", board_kind: public${wsId ? ', workspace_id: ' + wsId : ''}) { id }
-  }`);
-  boardId = cr?.data?.create_board?.id;
-  if (!boardId) throw new Error('Could not create board. Check API token.');
-  localStorage.setItem(BOARD_ID_KEY, boardId);
-
-  for (const [title, type] of [
-    ['Site Number',         'text'],
-    ['Meter Reading (kWh)', 'numbers'],
-    ['Read Month',          'text'],
-    ['Notes',               'text'],
-    ['Meter Picture',       'file'],
-    ['Creation Log',        'creation_log']
-  ]) {
-    await mondayGQL(`mutation { create_column(board_id: ${boardId}, title: "${title}", column_type: ${type}) { id } }`);
-  }
-  return boardId;
+async function getColumnMap() {
+  const br   = await mondayGQL(`{ boards(ids: [${BOARD_ID}]) { columns { id title } } }`);
+  const cols = br?.data?.boards?.[0]?.columns || [];
+  const cm   = {};
+  cols.forEach(c => {
+    const t = c.title.toLowerCase();
+    if (t === 'site number')        cm.site    = c.id;
+    else if (t.includes('reading')) cm.reading = c.id;
+    else if (t === 'read month')    cm.month   = c.id;
+    else if (t === 'notes')         cm.notes   = c.id;
+    else if (t === 'meter picture') cm.photo   = c.id;
+  });
+  return cm;
 }
 
-// ── LOAD SITES ────────────────────────────────────────────────────────────
 async function loadSites() {
   show('loading');
   allSites = Array.from({ length: 64 }, (_, i) => 'Site ' + (i + 1));
@@ -509,17 +390,14 @@ async function loadSites() {
     });
   } catch(e) { occupiedSites = []; }
   if (!occupiedSites.length) occupiedSites = allSites.slice();
-
   sites = occupiedSites.slice();
   document.getElementById('month-label').textContent  = monthLabel;
   document.getElementById('topbar-month').textContent = monthLabel;
   rebuildJumpMenu(); renderList(); show('list');
-
   const saved = Object.keys(entries).filter(k => entries[k]?.reading).length;
   if (saved > 0) showToast('Resumed — ' + saved + ' site(s) already have data', 3500);
 }
 
-// ── TOGGLE / FILTER ───────────────────────────────────────────────────────
 function toggleAllSites() {
   showAll = document.getElementById('toggle-all').checked;
   sites   = showAll ? allSites.slice() : occupiedSites.slice();
@@ -536,9 +414,9 @@ function rebuildJumpMenu() {
   const sel = document.getElementById('jump-select');
   sel.innerHTML = '<option value="">— Jump To A Specific Site —</option>';
   sites.forEach((site, idx) => {
-    const e    = entries[site];
+    const e = entries[site];
     const flag = e?.saved ? ' ✓' : e?.reading ? ' …' : '';
-    const opt  = document.createElement('option');
+    const opt = document.createElement('option');
     opt.value = idx; opt.textContent = site + flag;
     sel.appendChild(opt);
   });
@@ -549,40 +427,29 @@ function jumpToSite() {
   if (!isNaN(idx) && idx >= 0) { openEntry(idx); sel.value = ''; }
 }
 
-// ── RENDER LIST ───────────────────────────────────────────────────────────
 function renderList() {
   const list    = document.getElementById('site-list');
   const query   = (document.getElementById('search-input').value || '').toLowerCase();
   const occSet  = new Set(occupiedSites);
   const filtered = sites.filter(s => s.toLowerCase().includes(query));
-
   const done  = sites.filter(s => entries[s]?.saved).length;
   const total = sites.length;
   document.getElementById('progress-label').textContent = done + ' of ' + total + ' complete';
   document.getElementById('progress-fill').style.width  = (total ? Math.round(done / total * 100) : 0) + '%';
-
   list.innerHTML = '';
   if (!filtered.length) { list.innerHTML = '<div class="empty-state">No sites match your search.</div>'; return; }
-
   filtered.forEach(site => {
     const idx      = sites.indexOf(site);
     const e        = entries[site];
     const isDone   = e?.saved;
     const isTouched = e?.reading && !e.saved;
     const isVacant = showAll && !occSet.has(site);
-
     const div = document.createElement('div');
     div.className = 'site-card' + (isDone ? ' done' : isTouched ? ' amber' : '');
     if (isVacant) div.style.opacity = '0.38';
     div.innerHTML =
-      '<div class="site-icon">' +
-        (isDone
-          ? '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'
-          : '<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>') +
-      '</div>' +
-      '<span class="site-name">' + site +
-        (isVacant ? ' <span style="font-size:10px;font-weight:400;color:var(--text-ter)">(vacant)</span>' : '') +
-      '</span>' +
+      '<div class="site-icon">' + (isDone ? '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>' : '<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>') + '</div>' +
+      '<span class="site-name">' + site + (isVacant ? ' <span style="font-size:10px;font-weight:400;color:var(--text-ter)">(vacant)</span>' : '') + '</span>' +
       '<span class="site-badge ' + (isDone ? 'badge-done' : 'badge-amber') + '">' + (isDone ? 'Done' : 'Pending') + '</span>' +
       '<span class="chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>';
     div.onclick = () => openEntry(idx);
@@ -590,12 +457,30 @@ function renderList() {
   });
 }
 
-// ── ENTRY FORM ────────────────────────────────────────────────────────────
+function isLastUnfinished(idx) {
+  return sites.filter((s, i) => i !== idx && !entries[s]?.saved).length === 0;
+}
+
+function updateEntryButtons() {
+  const btnNext   = document.getElementById('btn-save-next');
+  const btnChoose = document.getElementById('btn-save-choose');
+  if (isLastUnfinished(currentIdx)) {
+    btnNext.textContent     = 'Submit All Sites';
+    btnNext.className       = 'primary green';
+    btnNext.onclick         = saveAndSubmit;
+    btnChoose.style.display = 'none';
+  } else {
+    btnNext.textContent     = 'Save & Next Site';
+    btnNext.className       = 'primary';
+    btnNext.onclick         = saveAndNext;
+    btnChoose.style.display = '';
+  }
+}
+
 function openEntry(idx) {
   currentIdx = idx;
   const site = sites[idx];
   const e    = entries[site] || {};
-
   document.getElementById('entry-site-name').textContent = site;
   document.getElementById('entry-counter').textContent   = 'Site ' + (idx + 1) + ' of ' + sites.length;
   document.getElementById('entry-status').textContent    = '';
@@ -603,12 +488,10 @@ function openEntry(idx) {
   document.getElementById('input-reading').value = e.reading || '';
   document.getElementById('input-notes').value   = e.notes   || '';
   document.getElementById('input-photo').value   = '';
-
   const badge = document.getElementById('entry-badge');
-  if (e.saved)        { badge.textContent = 'Done';        badge.style.background = 'var(--green-light)';  badge.style.color = 'var(--green-dark)'; }
-  else if (e.reading) { badge.textContent = 'Pending';     badge.style.background = 'var(--amber-light)';  badge.style.color = 'var(--amber-dark)'; }
-  else                { badge.textContent = 'Not Started'; badge.style.background = 'var(--gray-100)';     badge.style.color = 'var(--text-ter)'; }
-
+  if (e.saved)        { badge.textContent = 'Done';        badge.style.background = 'var(--green-light)'; badge.style.color = 'var(--green-dark)'; }
+  else if (e.reading) { badge.textContent = 'Pending';     badge.style.background = 'var(--amber-light)'; badge.style.color = 'var(--amber-dark)'; }
+  else                { badge.textContent = 'Not Started'; badge.style.background = 'var(--gray-100)';    badge.style.color = 'var(--text-ter)'; }
   const preview = document.getElementById('photo-preview');
   const zone    = document.getElementById('photo-zone');
   const lbl     = document.getElementById('photo-zone-label');
@@ -619,6 +502,7 @@ function openEntry(idx) {
     preview.style.display = 'none'; preview.src = '';
     zone.classList.remove('photo-taken'); lbl.textContent = 'Tap To Take Photo Or Upload';
   }
+  updateEntryButtons();
   show('entry');
 }
 
@@ -634,6 +518,7 @@ function handlePhoto(input) {
     if (!entries[site]) entries[site] = {};
     entries[site].photoUrl  = evt.target.result;
     entries[site].photoName = file.name || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '.jpg');
+    updateEntryButtons();
   };
   reader.readAsDataURL(file);
 }
@@ -661,6 +546,12 @@ function saveAndNext() {
   else setTimeout(() => { goToList(); showToast('All Sites Complete — Tap Review & Submit!', 3500); }, 350);
 }
 
+function saveAndSubmit() {
+  if (!validateEntry()) return;
+  commitEntry(); showToast('Last site saved!');
+  setTimeout(() => goToReview(), 400);
+}
+
 function saveAndChoose() {
   if (!validateEntry()) return;
   commitEntry();
@@ -685,22 +576,8 @@ function buildChooseList(query) {
   });
 }
 function filterChoose() { buildChooseList(document.getElementById('choose-search').value); }
-
-function saveDraft() {
-  const site = sites[currentIdx];
-  if (!entries[site]) entries[site] = {};
-  const reading = document.getElementById('input-reading').value.trim();
-  if (reading) entries[site].reading = reading;
-  entries[site].notes = document.getElementById('input-notes').value.trim();
-  entries[site].site  = site;
-  persistEntries();
-  showToast('Progress Saved — Safe To Close The App', 3000);
-  setTimeout(() => goToList(), 500);
-}
-
 function goToList() { rebuildJumpMenu(); renderList(); show('list'); }
 
-// ── REVIEW & SUBMIT ───────────────────────────────────────────────────────
 function handleSubmitClick() {
   const remaining = sites.length - sites.filter(s => entries[s]?.saved).length;
   if (remaining > 0) { showToast('You Must Complete All ' + remaining + ' Remaining Site(s) Before Submitting', 3500); return; }
@@ -708,14 +585,15 @@ function handleSubmitClick() {
 }
 
 function goToReview() {
-  document.getElementById('review-subtitle').textContent         = sites.length + ' sites — ' + monthLabel;
+  document.getElementById('review-subtitle').textContent  = sites.length + ' sites — ' + monthLabel;
   document.getElementById('submit-progress').classList.remove('show');
   document.getElementById('success-banner').classList.remove('show');
-  document.getElementById('btn-final-submit').disabled           = false;
-  document.getElementById('btn-final-submit').textContent        = 'Submit All Meter Reads';
-  document.getElementById('btn-back-edit').style.display         = '';
-  document.getElementById('review-status').textContent           = '';
-
+  document.getElementById('success-countdown').textContent = '';
+  document.getElementById('btn-final-submit').disabled    = false;
+  document.getElementById('btn-final-submit').textContent = 'Submit All Meter Reads';
+  document.getElementById('btn-back-edit').style.display  = '';
+  document.getElementById('review-status').textContent    = '';
+  if (resetTimer) { clearInterval(resetTimer); resetTimer = null; }
   const rl = document.getElementById('review-list'); rl.innerHTML = '';
   sites.forEach(site => {
     const e = entries[site] || {};
@@ -736,61 +614,43 @@ function setProgress(current, total, label) {
 }
 
 async function submitToMonday() {
-  const btn     = document.getElementById('btn-final-submit');
+  const btn      = document.getElementById('btn-final-submit');
   const statusEl = document.getElementById('review-status');
-  const progEl  = document.getElementById('submit-progress');
-  const succEl  = document.getElementById('success-banner');
+  const progEl   = document.getElementById('submit-progress');
+  const succEl   = document.getElementById('success-banner');
+  const countEl  = document.getElementById('success-countdown');
 
   btn.disabled = true; btn.textContent = 'Submitting...';
   progEl.classList.add('show');
-  document.getElementById('submit-progress-title').textContent = 'Submitting reads & uploading photos...';
   statusEl.textContent = ''; statusEl.className = 'status-msg';
 
   try {
-    setProgress(0, sites.length, 'Setting up board...');
-    const bid = await ensureBoard();
-
-    const br   = await mondayGQL(`{ boards(ids: [${bid}]) { columns { id title } } }`);
-    const cols = br?.data?.boards?.[0]?.columns || [];
-    const cm   = {};
-    cols.forEach(c => {
-      const t = c.title.toLowerCase();
-      if (t === 'site number')        cm.site    = c.id;
-      else if (t.includes('reading')) cm.reading = c.id;
-      else if (t === 'read month')    cm.month   = c.id;
-      else if (t === 'notes')         cm.notes   = c.id;
-      else if (t === 'meter picture') cm.photo   = c.id;
-    });
-
+    setProgress(0, sites.length, 'Fetching board columns...');
+    const cm = await getColumnMap();
     let count = 0;
     for (const site of sites) {
       const e = entries[site] || {};
       count++;
       setProgress(count - 0.5, sites.length, 'Creating item: ' + site + '...');
-
-      // Build column values (no file here — file goes via Worker separately)
       const vals = {};
       if (cm.site    && e.site)    vals[cm.site]    = e.site;
       if (cm.reading && e.reading) vals[cm.reading] = e.reading;
       if (cm.month)                vals[cm.month]   = monthLabel;
       if (cm.notes   && e.notes)   vals[cm.notes]   = e.notes;
-
       const itemRes = await mondayGQL(
-        `mutation { create_item(board_id: ${bid}, item_name: "Meter Read — ${monthLabel}", column_values: ${JSON.stringify(JSON.stringify(vals))}) { id } }`
+        `mutation { create_item(board_id: ${BOARD_ID}, item_name: "Meter Read — ${monthLabel}", column_values: ${JSON.stringify(JSON.stringify(vals))}) { id } }`
       );
       const itemId = itemRes?.data?.create_item?.id;
-
-      // Upload photo through Cloudflare Worker (bypasses CORS)
       if (itemId && cm.photo && e.photoUrl) {
         setProgress(count - 0.2, sites.length, 'Uploading photo: ' + site + '...');
         const fname = e.photoName || ('meter-' + site.replace(/\s+/g, '-').toLowerCase() + '-' + monthLabel.replace(/\s+/g, '-') + '.jpg');
         await uploadPhotoViaWorker(itemId, cm.photo, e.photoUrl, fname);
       }
-
       setProgress(count, sites.length, count + ' of ' + sites.length + ' complete');
     }
 
-    // Success state
+    try { localStorage.removeItem(ENTRIES_KEY); } catch(e2) {}
+
     progEl.classList.remove('show');
     btn.textContent = 'All Meter Reads Submitted ✓';
     btn.disabled    = true;
@@ -799,7 +659,20 @@ async function submitToMonday() {
       count + ' meter reads submitted on ' + todayStr + ' for ' + monthLabel + '.';
     succEl.classList.add('show');
     succEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    try { localStorage.removeItem(ENTRIES_KEY); } catch(e2) {}
+
+    // Countdown then auto-reset to fresh session
+    let countdown = 8;
+    countEl.textContent = 'Returning to main screen in ' + countdown + 's...';
+    resetTimer = setInterval(() => {
+      countdown--;
+      if (countdown > 0) {
+        countEl.textContent = 'Returning to main screen in ' + countdown + 's...';
+      } else {
+        clearInterval(resetTimer);
+        resetTimer = null;
+        resetApp();
+      }
+    }, 1000);
 
   } catch(err) {
     progEl.classList.remove('show');
@@ -810,6 +683,7 @@ async function submitToMonday() {
 }
 
 function resetApp() {
+  if (resetTimer) { clearInterval(resetTimer); resetTimer = null; }
   entries = {};
   try { localStorage.removeItem(ENTRIES_KEY); } catch(e) {}
   rebuildJumpMenu(); renderList(); show('list');
