@@ -892,7 +892,6 @@ textarea.field-input { resize: none; line-height: 1.5; font-size: 14px; }
 const WORKER_URL   = 'https://blue-ridge-proxy.josh-060.workers.dev';
 const SHEET_ID     = '1oQrQ3uJUepiyekoCC60j3_LxIoDtDhlsZMaLaLGohGg';
 const ENTRIES_KEY  = 'br_meter_entries';
-const MONDAY_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY2MDA0OTE1NywiYWFpIjoxMSwidWlkIjo2NzIwNDIwMywiaWFkIjoiMjAyNi0wNS0xOFQyMjoxMTowNC4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjU5MTM0NDYsInJnbiI6InVzZTEifQ.JsRt0oyosuGsIXnBm4hU-E4PB-6C0fzYT2RAffDlhnA';
 const BOARD_ID     = '18413790885';
 // Pre-Arrival Site Inspection Board ID: 18413833610
 const FORM_CHECKIN = 'https://forms.monday.com/forms/feb68c086da9839a8ed243ca926d0320?r=use1';
@@ -1008,11 +1007,15 @@ async function startMeterReads() {
 }
 
 async function mondayGQL(query) {
-  const r = await fetch('https://api.monday.com/v2', {
+  const r = await fetch(WORKER_URL + '/graphql', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': MONDAY_TOKEN, 'API-Version': '2024-01' },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query })
   });
+  if (!r.ok) {
+    const errText = await r.text();
+    throw new Error('Worker GraphQL error (' + r.status + '): ' + errText);
+  }
   const data = await r.json();
   if (data.errors) throw new Error(data.errors[0]?.message || 'Monday API error');
   return data;
@@ -1029,7 +1032,7 @@ async function uploadPhotoViaWorker(itemId, columnId, dataUrl, filename) {
   const form     = new FormData();
   form.append('query', gqlQuery);
   form.append('variables[file]', blob, filename);
-  const r = await fetch(WORKER_URL, { method: 'POST', body: form });
+  const r = await fetch(WORKER_URL + '/file', { method: 'POST', body: form });
   if (!r.ok) throw new Error('Photo upload failed: ' + await r.text());
   const result = await r.json();
   if (result.errors) throw new Error('Monday photo error: ' + result.errors[0]?.message);
