@@ -1168,8 +1168,8 @@ function saveAndNext() {
 }
 function saveAndSubmit() {
   if (!validateEntry()) return;
-  commitEntry(); showToast('Last site saved!');
-  setTimeout(() => goToReview(), 400);
+  commitEntry(); showToast('Last site saved! Submitting...');
+  setTimeout(() => { goToReview(); submitToMonday(); }, 400);
 }
 function saveAndChoose() {
   if (!validateEntry()) return;
@@ -1200,6 +1200,7 @@ function handleSubmitClick() {
   const remaining = sites.length - sites.filter(s => entries[s]?.saved).length;
   if (remaining > 0) { showToast('You Must Complete All ' + remaining + ' Remaining Site(s) Before Submitting', 3500); return; }
   goToReview();
+  submitToMonday();
 }
 function goToReview() {
   document.getElementById('review-subtitle').textContent  = sites.length + ' sites — ' + monthLabel;
