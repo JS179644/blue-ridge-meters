@@ -910,6 +910,80 @@ let allSites = [], occupiedSites = [], sites = [];
 let entries = {}, currentIdx = 0, showAll = false, resetTimer = null, sitesLoaded = false;
 try { entries = JSON.parse(localStorage.getItem(ENTRIES_KEY) || '{}'); } catch(e) { entries = {}; }
 
+// ---------- Photo persistence (IndexedDB) ----------
+const PHOTO_DB_NAME  = 'br_meter_photos';
+const PHOTO_DB_STORE = 'photos';
+let _photoDB = null;
+
+function openPhotoDB() {
+  if (_photoDB) return Promise.resolve(_photoDB);
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(PHOTO_DB_NAME, 1);
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(PHOTO_DB_STORE)) db.createObjectStore(PHOTO_DB_STORE);
+    };
+    req.onsuccess = (e) => { _photoDB = e.target.result; resolve(_photoDB); };
+    req.onerror   = (e) => reject(e.target.error);
+  });
+}
+
+async function savePhotoToDB(site, dataUrl, photoName) {
+  try {
+    const db = await openPhotoDB();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(PHOTO_DB_STORE, 'readwrite');
+      tx.objectStore(PHOTO_DB_STORE).put({ dataUrl, photoName, savedAt: Date.now() }, site);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror    = () => reject(tx.error);
+    });
+  } catch (e) { console.warn('savePhotoToDB failed', e); return false; }
+}
+
+async function loadAllPhotosFromDB() {
+  try {
+    const db = await openPhotoDB();
+    return await new Promise((resolve, reject) => {
+      const tx    = db.transaction(PHOTO_DB_STORE, 'readonly');
+      const store = tx.objectStore(PHOTO_DB_STORE);
+      const req   = store.openCursor();
+      const out   = {};
+      req.onsuccess = (e) => {
+        const cur = e.target.result;
+        if (cur) { out[cur.key] = cur.value; cur.continue(); }
+        else     { resolve(out); }
+      };
+      req.onerror = () => reject(req.error);
+    });
+  } catch (e) { console.warn('loadAllPhotosFromDB failed', e); return {}; }
+}
+
+async function deletePhotoFromDB(site) {
+  try {
+    const db = await openPhotoDB();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(PHOTO_DB_STORE, 'readwrite');
+      tx.objectStore(PHOTO_DB_STORE).delete(site);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror    = () => reject(tx.error);
+    });
+  } catch (e) { console.warn('deletePhotoFromDB failed', e); return false; }
+}
+
+// Save a copy of the compressed photo to the user's device (Downloads / Files).
+// User can move it to Photos manually. Works on iOS Safari + Android Chrome.
+function saveToDevice(dataUrl, filename) {
+  try {
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => document.body.removeChild(a), 100);
+  } catch (e) { console.warn('saveToDevice failed', e); }
+}
+
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -1012,12 +1086,27 @@ async function loadSites() {
   } catch(e) { occupiedSites = []; }
   if (!occupiedSites.length) occupiedSites = allSites.slice();
   sites = occupiedSites.slice();
+
+  // Hydrate photos from IndexedDB so refresh/back-out doesn't lose them
+  try {
+    const dbPhotos = await loadAllPhotosFromDB();
+    let restored = 0;
+    for (const site in dbPhotos) {
+      if (!entries[site]) entries[site] = { site };
+      entries[site].photoUrl  = dbPhotos[site].dataUrl;
+      entries[site].photoName = dbPhotos[site].photoName;
+      restored++;
+    }
+    if (restored > 0) console.log('Restored ' + restored + ' photo(s) from local storage');
+  } catch (e) { console.warn('Photo hydrate failed:', e); }
+
   sitesLoaded = true;
   document.getElementById('month-label').textContent  = monthLabel;
   document.getElementById('topbar-month').textContent = monthLabel;
   rebuildJumpMenu(); renderList(); show('screen-list');
-  const saved = Object.keys(entries).filter(k => entries[k]?.reading).length;
-  if (saved > 0) showToast('Resumed — ' + saved + ' site(s) already have data', 3500);
+  const saved   = Object.keys(entries).filter(k => entries[k]?.reading).length;
+  const photos  = Object.keys(entries).filter(k => entries[k]?.photoUrl).length;
+  if (saved > 0) showToast('Resumed — ' + saved + ' reading(s), ' + photos + ' photo(s) saved', 3500);
 }
 
 function toggleAllSites() {
@@ -1142,6 +1231,10 @@ async function handlePhoto(input) {
     if (!entries[site]) entries[site] = {};
     entries[site].photoUrl  = compressed;
     entries[site].photoName = 'meter-' + site.replace(/\s+/g, '-').toLowerCase() + '-' + monthLabel.replace(/\s+/g, '-') + '.jpg';
+    // Persist photo to IndexedDB so it survives refresh/close
+    await savePhotoToDB(site, compressed, entries[site].photoName);
+    // Save a copy to the user's phone (Downloads / Files)
+    saveToDevice(compressed, entries[site].photoName);
     updateEntryButtons();
   } finally { compNote.classList.remove('show'); }
 }
